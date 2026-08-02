@@ -1,0 +1,10 @@
+p,h1, h2, h3, h4, h5, h6, header, footer, div, span, a, button, input, textarea, select, option {
+  font-family: 'Kantumruy Pro', 'Battambang', sans-serif !important;
+}
+main.page-content {
+  min-height: calc(100vh - 12rem);
+  padding: 2rem 0 3rem;
+}
+.app-shell {
+  min-height: 100vh;
+}
