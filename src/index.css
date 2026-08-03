@@ -1,28 +1,35 @@
 :root {
   color-scheme: light;
-  --bg: #f4f8f5;
+  --color-primary: #003E83;
+  --color-primary-hover: #002e62;
+  --color-input: #5f84b3;
+  --color-white: #ffffff;
+  --color-teal: #22b7ab;
+  --color-teal-soft: #e9f8f6;
+  --color-teal-border: #b2ebe6;
+  --bg: #f7faff;
   --surface: #ffffff;
-  --surface-alt: #eef7f0;
-  --text-strong: #153524;
-  --text-muted: #5d7568;
-  --accent: #2f8f66;
-  --accent-strong: #1f6a4a;
-  --accent-soft: #dff5e8;
-  --border: rgba(21, 53, 36, 0.12);
-  --shadow: 0 18px 45px rgba(20, 41, 31, 0.08);
+  --surface-alt: #eef4ff;
+  --text-strong: #111827;
+  --text-muted: #5f84b3;
+  --accent: #003E83;
+  --accent-strong: #002e62;
+  --accent-soft: #e9f8f6;
+  --border: #e5e7eb;
+  --shadow: 0 18px 45px rgba(0, 62, 131, 0.08);
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #07110d;
-  --surface: #12241c;
-  --surface-alt: #183524;
-  --text-strong: #f6fcf7;
-  --text-muted: #aac3b0;
-  --accent: #5fd49d;
-  --accent-strong: #7bf2b2;
-  --accent-soft: rgba(95, 212, 157, 0.16);
-  --border: rgba(255, 255, 255, 0.14);
+  --bg: #111827;
+  --surface: #1f2937;
+  --surface-alt: #374151;
+  --text-strong: #ffffff;
+  --text-muted: #9ca3af;
+  --accent: #5f84b3;
+  --accent-strong: #003E83;
+  --accent-soft: rgba(34, 183, 171, 0.16);
+  --border: #374151;
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
 }
 
@@ -31,11 +38,11 @@ html {
 }
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 0;
   font-family: 'Kantumruy Pro', 'Battambang', system-ui, sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(47, 143, 102, 0.14), transparent 28%),
-    linear-gradient(135deg, var(--bg) 0%, #edf7ef 46%, var(--surface) 100%);
+    radial-gradient(circle at top left, rgba(0, 62, 131, 0.14), transparent 28%),
+    linear-gradient(135deg, var(--bg) 0%, var(--surface-alt) 46%, var(--surface) 100%);
   color: var(--text-strong);
   transition: background-color 0.3s ease, color 0.3s ease;
 }

@@ -7,16 +7,20 @@ import {
   faXmark,
   faGlobe,
   faMoon,
-  faSun
+  faSun,
+  faChevronDown
 } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/Navbar.css';
 
 function Navbar({ theme, setTheme, language, setLanguage }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const isKhmer = language === 'kh';
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
+  const toggleLanguageMenu = () => setIsLanguageMenuOpen((prev) => !prev);
+  const closeLanguageMenu = () => setIsLanguageMenuOpen(false);
 
   const navLabels = {
     brand: isKhmer ? 'ទេសចរណ៍ឆ្លាត' : 'Smart Tourism',
@@ -85,21 +89,43 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
         </ul>
 
         <div className="navbar-actions">
-          <div className="toggle-group" aria-label="Language toggle">
+          <div className="language-dropdown">
             <button
               type="button"
-              className={`pill-btn ${language === 'en' ? 'active' : ''}`}
-              onClick={() => setLanguage('en')}
+              className="language-dropdown-toggle"
+              aria-label="Choose language"
+              aria-expanded={isLanguageMenuOpen}
+              onClick={toggleLanguageMenu}
             >
-              EN
+              <FontAwesomeIcon icon={faGlobe} />
+              <span>{isKhmer ? 'KH' : 'EN'}</span>
+              <FontAwesomeIcon icon={faChevronDown} className="language-dropdown-arrow" />
             </button>
-            <button
-              type="button"
-              className={`pill-btn ${language === 'kh' ? 'active' : ''}`}
-              onClick={() => setLanguage('kh')}
-            >
-              KH
-            </button>
+
+            {isLanguageMenuOpen && (
+              <div className="language-dropdown-menu" role="menu">
+                <button
+                  type="button"
+                  className={`language-option ${language === 'en' ? 'active' : ''}`}
+                  onClick={() => {
+                    setLanguage('en');
+                    closeLanguageMenu();
+                  }}
+                >
+                  English
+                </button>
+                <button
+                  type="button"
+                  className={`language-option ${language === 'kh' ? 'active' : ''}`}
+                  onClick={() => {
+                    setLanguage('kh');
+                    closeLanguageMenu();
+                  }}
+                >
+                  ភាសាខ្មែរ
+                </button>
+              </div>
+            )}
           </div>
 
           <button
@@ -109,10 +135,6 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
             onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
           >
             <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun} />
-          </button>
-
-          <button type="button" className="icon-btn" aria-label="Language selector">
-            <FontAwesomeIcon icon={faGlobe} />
           </button>
 
           <Link to="#" className="btn-primary" onClick={closeMobileMenu}>

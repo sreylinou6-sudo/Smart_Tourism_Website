@@ -1,16 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
+import Info from '../components/Info';
 
-function InfoPage() {
+function InfoPage({ language = 'en' }) {
   useEffect(() => {
-    document.title = 'Smart Tourism | Info'
-  }, [])
+    document.title = language === 'kh' ? 'ទេសចរណ៍ឆ្លាត | ព័ត៌មាន' : 'Smart Tourism | Info';
+  }, [language]);
 
-  return (
-    <section className="page page-info">
-      <h1>Info Page</h1>
-      <p>Get travel details, local guides, and tourism insights for your next journey.</p>
-    </section>
-  )
+  return <Info language={language} />;
 }
 
 export default InfoPage

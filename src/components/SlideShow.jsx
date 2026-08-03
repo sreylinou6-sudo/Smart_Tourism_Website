@@ -25,13 +25,13 @@ const slideData = [
   {
     id: 2,
     badge: { en: 'Island Escape', kh: 'ការលាលែងកោះ' },
-    title: { en: 'Tropical Paradise Koh Rong', kh: 'កោះរ៉ុងត្រជាក់ដ៏ល្អ' },
+    title: { en: 'Tropical Paradise Koh Rong', kh: 'កោះរ៉ុង' },
     location: { en: 'Sihanoukville, Cambodia', kh: 'ខេត្តព្រះសីហនុ កម្ពុជា' },
     description: {
       en: 'Relax on pristine white sands and swim in crystal-clear turquoise waters at Cambodia’s premier island destination.',
       kh: 'សម្រាកលើឆ្នេរថ្មពណ៌ស្កឹម និងហែលទឹកនៅក្នុងទឹកពណ៌ប៊ីរីច្បាស់នៅកន្លែងជំរាបកោះដ៏ល្បីរបស់កម្ពុជា។'
     },
-    image: 'https://d122axpxm39woi.cloudfront.net/images/destinations/origin/684161671e05d.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhseWVynGk_D5bdxkpNAVF4qYp1ybb8_E3n-Nt78UAXA&s=10',
     link: '/explore/koh-rong'
   },
   {
@@ -43,7 +43,7 @@ const slideData = [
       en: 'Immerse yourself in one of Southeast Asia’s last great rainforests and discover rare wildlife and hidden waterfalls.',
       kh: 'សិក្សារួមជាមួយព្រៃកម្ពុជា ដ៏អស្ចារ្យមួយនៅឈានមុខកំពូលនៃអាស៊ីអាគ្នេយ៍ និងស្វែងរកសត្វកម្រិតកម្រិត។'
     },
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQAOA0wTStPpNHQljNBLvi9X3rlerk-Cb1D3SGTwcdyw&s=10',
     link: '/explore/cardamom'
   }
 ];

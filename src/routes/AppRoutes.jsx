@@ -11,10 +11,10 @@ function AppRoutes({ theme, setTheme, language, setLanguage }) {
     <Routes>
       <Route element={<MainLayout theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage} />}>
         <Route path="/" element={<HomePage language={language} />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/info" element={<InfoPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/about" element={<AboutPage language={language} />} />
+        <Route path="/info" element={<InfoPage language={language} />} />
+        <Route path="/gallery" element={<GalleryPage language={language} />} />
+        <Route path="/explore" element={<ExplorePage language={language} />} />
       </Route>
     </Routes>
   );

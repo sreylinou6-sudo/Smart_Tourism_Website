@@ -31,7 +31,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(21, 53, 36, 0.88) 0%, rgba(21, 53, 36, 0.56) 50%, rgba(21, 53, 36, 0.2) 100%),
+    linear-gradient(90deg, rgba(0, 62, 131, 0.86) 0%, rgba(0, 62, 131, 0.56) 50%, rgba(17, 24, 39, 0.25) 100%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.2) 100%);
 }
 .slide-content {
@@ -51,8 +51,8 @@
   align-items: center;
   margin-bottom: 1rem;
   padding: 0.5rem 0.9rem;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
+  background: rgba(34, 183, 171, 0.2);
+  color: #22b7ab;
   border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 700;
@@ -119,7 +119,7 @@
   transition: all 0.2s ease;
 }
 .nav-arrow:hover {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #22b7ab 100%);
   color: var(--surface);
 }
 .nav-arrow.left {
@@ -147,7 +147,7 @@
 }
 .dot.active {
   width: 32px;
-  background: var(--accent);
+  background: #22b7ab;
   border-radius: 999px;
 }
 @keyframes fadeInUp {

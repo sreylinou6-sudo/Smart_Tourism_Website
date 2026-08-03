@@ -1,15 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 import Explore from '../components/Explore';
 
-function ExplorePage() {
+function ExplorePage({ language = 'en' }) {
   useEffect(() => {
-    document.title = 'Smart Tourism | Explore'
-  }, [])
+    document.title = language === 'kh' ? 'ទេសចរណ៍ឆ្លាត | ស្វែងរក' : 'Smart Tourism | Explore';
+  }, [language]);
 
   return (
     <div>
-      <Explore></Explore>
+      <Explore language={language} />
     </div>
-  )
+  );
 }
+
 export default ExplorePage;

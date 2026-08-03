@@ -1,16 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
+import About from '../components/About';
 
-function AboutPage() {
+function AboutPage({ language = 'en' }) {
   useEffect(() => {
-    document.title = 'Smart Tourism | About'
-  }, [])
+    document.title = language === 'kh' ? 'ទេសចរណ៍ឆ្លាត | អំពីពួកយើង' : 'Smart Tourism | About';
+  }, [language]);
 
-  return (
-    <section className="page page-about">
-      <h1>About Smart Tourism</h1>
-      <p>Smart Tourism helps travelers discover curated destinations, local tips, and seamless exploration tools.</p>
-    </section>
-  )
+  return <About language={language} />;
 }
 
 export default AboutPage

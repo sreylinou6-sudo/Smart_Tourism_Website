@@ -9,11 +9,11 @@ function Footer({ language }) {
   const isKhmer = language === 'kh';
 
   const content = {
-    brand: isKhmer ? 'ទេសចរណ៍ឆ្លាត' : 'Smart Tourism',
+    brand: isKhmer ? 'ទេសចរណ៍ឆ្លាតវៃ' : 'Smart Tourism',
     intro: isKhmer
       ? 'ច្រកចេញរបស់អ្នកដើម្បីស្វែងយល់ពីកន្លែងធ្វើដំណើរដែលបានជ្រើសរើសក៏ដូចជាឱកាសជីវិតក្នុងស្រុក។'
       : 'Your gateway to discovering curated destinations, local tips, and seamless exploration tools around the globe.',
-    navTitle: isKhmer ? 'នាវាចរណ៍' : 'Navigation',
+    navTitle: isKhmer ? 'ការរុករក' : 'Navigation',
     categoryTitle: isKhmer ? 'ប្រភេទ' : 'Categories',
     newsletterTitle: isKhmer ? 'ទទួលបានព័ត៌មានថ្មី' : 'Stay Updated',
     newsletterText: isKhmer

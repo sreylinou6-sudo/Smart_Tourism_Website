@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+import Gallery from "../components/Gallery";            
 
-function GalleryPage() {
+function GalleryPage({ language = 'en' }) {
     useEffect(() => {
-        document.title = "Smart Tourism | Gallery Page";
-    }, []);
+        document.title = language === 'kh' ? 'ទេសចរណ៍ឆ្លាត | រូបថត' : 'Smart Tourism | Gallery Page';
+    }, [language]);
     return (
         <div className="gallery-page">
-            <h1>Gallery Page</h1>
-            <p>Welcome to the gallery page of Smart Tourism!</p>
+            <Gallery language={language} />
         </div>
     );
 }
