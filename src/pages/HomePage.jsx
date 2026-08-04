@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import SlideShow from '../components/SlideShow';
+import FeaturedDestinations from '../components/FeaturedDestinations';
+import Services from '../components/Services';
 
 
 function HomePage({ language = 'en' }) {
@@ -10,6 +12,7 @@ function HomePage({ language = 'en' }) {
   return (
     <div>
       <SlideShow language={language} />
+      <FeaturedDestinations />
     </div>
   );
 }

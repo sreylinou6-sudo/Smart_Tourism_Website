@@ -23,14 +23,14 @@
   color-scheme: dark;
   --bg: #111827;
   --surface: #1f2937;
-  --surface-alt: #374151;
+  --surface-alt: #2d3748; /* Slightly adjusted contrast */
   --text-strong: #ffffff;
   --text-muted: #9ca3af;
   --accent: #5f84b3;
   --accent-strong: #003E83;
   --accent-soft: rgba(34, 183, 171, 0.16);
   --border: #374151;
-  --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
 }
 
 html {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import logoImg from '../../assets/logoApp.png';
 import {
   faCompass,
   faBars,
@@ -36,7 +37,7 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
     <header className="navbar-header">
       <nav className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          <FontAwesomeIcon icon={faCompass} className="navbar-logo-icon" />
+          <img src={logoImg} alt="Logo" className="navbar-logo-icon" />
           <span>{navLabels.brand}</span>
         </Link>
 

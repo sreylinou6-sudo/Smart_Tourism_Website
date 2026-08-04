@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCompass, faEnvelope, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import logoImg from '../../assets/logoApp.png';
 import '../../styles/Footer.css';
 
 function Footer({ language }) {
@@ -35,7 +36,7 @@ function Footer({ language }) {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <FontAwesomeIcon icon={faCompass} className="logo-icon" />
+              <img src={logoImg} alt="Smart Tourism logo" className="footer-logo-icon" />
               <span>{content.brand}</span>
             </Link>
             <p className="footer-text">{content.intro}</p>

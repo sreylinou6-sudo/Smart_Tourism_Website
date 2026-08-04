@@ -1,144 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faStar,
   faLocationDot,
   faHeart,
   faArrowRight,
-  faMagnifyingGlass
+  faMagnifyingGlass,
+  faArrowLeft,
+  faClock,
+  faCircleCheck,
+  faCompass
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import '../styles/Explore.css';
-
-const placesData = [
-  {
-    id: 1,
-    title: { en: 'Angkor Wat Temple', kh: 'ប្រាសាទអង្គរវត្ត' },
-    location: { en: 'Siem Reap', kh: 'សៀមរាប' },
-    category: { en: 'Historical', kh: 'ប្រវត្តិសាស្ត្រ' },
-    rating: 4.9,
-    reviews: 1280,
-    price: '$37',
-    image: 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnd0HqXmRD3nJfTKZ_v-PudV_oMtWeFM_AK20WIvBETCo6Jfmh90RAxJlJOeBD9ycOpQ7xIejDxDj1pOZ_-hkr5rstuDgCQC4ZxMSYttGzGVQqxZDncVAjcbMFdDiZmHz9wP9E=s680-w680-h510-rw',
-    isPopular: true
-  },
-  {
-    id: 2,
-    title: { en: 'Koh Rong Sanloem Island', kh: 'កោះកុងសែន' },
-    location: { en: 'Sihanoukville', kh: 'ព្រះសីហនុ' },
-    category: { en: 'Beaches', kh: 'ឆ្នេរខ្សាច់' },
-    rating: 4.8,
-    reviews: 850,
-    price: '$25',
-    image: 'https://dontforgettomove.com/wp-content/uploads/2015/06/Saracen-Bay-Resort.jpg',
-    isPopular: true
-  },
-  {
-    id: 3,
-    title: { en: 'Bokor National Park', kh: 'ឧទ្យានជាតិបូកគោ' },
-    location: { en: 'Kampot', kh: 'កំពត' },
-    category: { en: 'Nature', kh: 'ធម្មជាតិ' },
-    rating: 4.6,
-    reviews: 420,
-    price: 'Free',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTco-LlaonMIofcG8QZp_U1FHLUmDEHMNnA2gLQ-Zofgt_KqR52IbU14WY&s=10',
-    isPopular: false
-  },
-  {
-    id: 4,
-    title: { en: 'Royal Palace & Silver Pagoda', kh: 'ព្រះបរមរាជវាំងចតុមុខមង្គល' },
-    location: { en: 'Phnom Penh', kh: 'ភ្នំពេញ' },
-    category: { en: 'Culture', kh: 'វប្បធម៌' },
-    rating: 4.7,
-    reviews: 960,
-    price: '$10',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl8oBFhRGVIjXwMdJ9Ju14ZYT9NytIYrUMpUs6NSwmnzzT22DVgMcybk4&s=10',
-    isPopular: false
-  },
-  {
-    id: 5,
-    title: { en: 'Kirirom Pine Forest', kh: 'ព្រៃក្តារីរំ' },
-    location: { en: 'Kampong Speu', kh: 'កំពតស្ពឺ' },
-    category: { en: 'Adventure', kh: 'ការជំរុញ' },
-    rating: 4.5,
-    reviews: 310,
-    price: '$5',
-    image: 'https://cdn.i-scmp.com/sites/default/files/styles/1020x680/public/d8/images/methode/2019/04/08/4c398e80-575b-11e9-a3ae-f2742b367090_image_hires_140430.jpg?itok=OrrdOs3K&v=1554703484',
-    isPopular: false
-  },
-  {
-    id: 6,
-    title: { en: 'Phnom Kulen Waterfalls', kh: 'ទឹកធ្លាក់ភ្នំគូលែន' },
-    location: { en: 'Siem Reap', kh: 'សៀមរាប' },
-    category: { en: 'Nature', kh: 'ធម្មជាតិ' },
-    rating: 4.8,
-    reviews: 640,
-    price: '$20',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/PhnomKulen.jpg',
-    isPopular: true
-  },
-   {
-    id: 7,
-    title: { en: 'Angkor Wat Temple', kh: 'ប្រាសាទអង្គរវត្ត' },
-    location: { en: 'Siem Reap', kh: 'សៀមរាប' },
-    category: { en: 'Historical', kh: 'ប្រវត្តិសាស្ត្រ' },
-    rating: 4.9,
-    reviews: 1280,
-    price: '$37',
-    image: 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnd0HqXmRD3nJfTKZ_v-PudV_oMtWeFM_AK20WIvBETCo6Jfmh90RAxJlJOeBD9ycOpQ7xIejDxDj1pOZ_-hkr5rstuDgCQC4ZxMSYttGzGVQqxZDncVAjcbMFdDiZmHz9wP9E=s680-w680-h510-rw',
-    isPopular: true
-  },
-   {
-    id: 8,
-    title: { en: 'Angkor Wat Temple', kh: 'ប្រាសាទអង្គរវត្ត' },
-    location: { en: 'Siem Reap', kh: 'សៀមរាប' },
-    category: { en: 'Historical', kh: 'ប្រវត្តិសាស្ត្រ' },
-    rating: 4.9,
-    reviews: 1280,
-    price: '$37',
-    image: 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnd0HqXmRD3nJfTKZ_v-PudV_oMtWeFM_AK20WIvBETCo6Jfmh90RAxJlJOeBD9ycOpQ7xIejDxDj1pOZ_-hkr5rstuDgCQC4ZxMSYttGzGVQqxZDncVAjcbMFdDiZmHz9wP9E=s680-w680-h510-rw',
-    isPopular: true
-  },
-   {
-    id: 9,
-    title: { en: 'Angkor Wat Temple', kh: 'ប្រាសាទអង្គរវត្ត' },
-    location: { en: 'Siem Reap', kh: 'សៀមរាប' },
-    category: { en: 'Historical', kh: 'ប្រវត្តិសាស្ត្រ' },
-    rating: 4.9,
-    reviews: 1280,
-    price: '$37',
-    image: 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnd0HqXmRD3nJfTKZ_v-PudV_oMtWeFM_AK20WIvBETCo6Jfmh90RAxJlJOeBD9ycOpQ7xIejDxDj1pOZ_-hkr5rstuDgCQC4ZxMSYttGzGVQqxZDncVAjcbMFdDiZmHz9wP9E=s680-w680-h510-rw',
-    isPopular: true
-  },
-   {
-    id: 10,
-    title: { en: 'Angkor Wat Temple', kh: 'ប្រាសាទអង្គរវត្ត' },
-    location: { en: 'Siem Reap', kh: 'សៀមរាប' },
-    category: { en: 'Historical', kh: 'ប្រវត្តិសាស្ត្រ' },
-    rating: 4.9,
-    reviews: 1280,
-    price: '$37',
-    image: 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnd0HqXmRD3nJfTKZ_v-PudV_oMtWeFM_AK20WIvBETCo6Jfmh90RAxJlJOeBD9ycOpQ7xIejDxDj1pOZ_-hkr5rstuDgCQC4ZxMSYttGzGVQqxZDncVAjcbMFdDiZmHz9wP9E=s680-w680-h510-rw',
-    isPopular: true
-  },
-   {
-    id: 11,
-    title: { en: 'Angkor Wat Temple', kh: 'ប្រាសាទអង្គរវត្ត' },
-    location: { en: 'Siem Reap', kh: 'សៀមរាប' },
-    category: { en: 'Historical', kh: 'ប្រវត្តិសាស្ត្រ' },
-    rating: 4.9,
-    reviews: 1280,
-    price: '$37',
-    image: 'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnd0HqXmRD3nJfTKZ_v-PudV_oMtWeFM_AK20WIvBETCo6Jfmh90RAxJlJOeBD9ycOpQ7xIejDxDj1pOZ_-hkr5rstuDgCQC4ZxMSYttGzGVQqxZDncVAjcbMFdDiZmHz9wP9E=s680-w680-h510-rw',
-    isPopular: true
-  },
-];
+import placesData from '../data/placesData'; // Import the places data
 
 function Explore({ language = 'en' }) {
   const [favorites, setFavorites] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedPlace, setSelectedPlace] = useState(null);
   const isKhmer = language === 'kh';
+
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === 'Escape') {
+        setSelectedPlace(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
 
   const toggleFavorite = (id) => {
     if (favorites.includes(id)) {
@@ -162,6 +55,27 @@ function Explore({ language = 'en' }) {
     return matchesCategory && matchesSearch;
   });
 
+  const getLocalizedText = (value, fallback) => {
+    if (!value) return fallback;
+    return value[isKhmer ? 'kh' : 'en'] || fallback;
+  };
+
+  const getDetailSummary = (place) => {
+    const fallback = isKhmer
+      ? `${getLocalizedText(place.title, 'កន្លែងទេសចរណ៍')} គឺជាកន្លែងដ៏ពិសេសដែលផ្តល់នូវទស្សនៈធម្មជាតិនិងបទពិសោធន៍យ៉ាងទូលំទូលាយសម្រាប់អ្នកទស្សនា។`
+      : `${getLocalizedText(place.title, 'This destination')} is a remarkable place that offers scenic beauty, cultural charm, and memorable experiences for every traveler.`;
+
+    return place.details?.summary?.[isKhmer ? 'kh' : 'en'] || fallback;
+  };
+
+  const getHighlights = (place) => {
+    const fallback = isKhmer
+      ? ['ទិដ្ឋភាពធម្មជាតិស្រស់ស្អាត', 'កន្លែងសម្រាប់ថតរូប', 'ឱកាសដើម្បីស្វែងរកបរិយកាស']
+      : ['Scenic natural views', 'Great photo spots', 'Perfect for discovery and relaxation'];
+
+    return place.details?.highlights?.[isKhmer ? 'kh' : 'en'] || fallback;
+  };
+
   const labels = {
     title: isKhmer ? 'ស្វែងរកកន្លែងទេសចរណ៍' : 'Explore Destinations',
     subtitle: isKhmer
@@ -171,7 +85,14 @@ function Explore({ language = 'en' }) {
     badge: isKhmer ? 'វាយតម្លៃខ្ពស់' : 'Top Rated',
     entry: isKhmer ? 'ចូល' : 'Entry',
     details: isKhmer ? 'មើលព័ត៌មានលម្អិត' : 'View Details',
-    save: isKhmer ? 'រក្សាភាសា' : 'Save place'
+    save: isKhmer ? 'រក្សាភាសា' : 'Save place',
+    overview: isKhmer ? 'ទិដ្ឋភាពទូទៅ' : 'Overview',
+    highlights: isKhmer ? 'ចំណុចសំខាន់' : 'Highlights',
+    plan: isKhmer ? 'រៀបចំដំណើរទស្សនា' : 'Plan your visit',
+    bestTime: isKhmer ? 'ពេលវេលាល្អបំផុត' : 'Best time',
+    entryFee: isKhmer ? 'ថ្លៃចូល' : 'Entry fee',
+    close: isKhmer ? 'បិទ' : 'Close',
+    ready: isKhmer ? 'ត្រៀមរួចរាល់ដើម្បីចាប់ផ្តើមដំណើរស្វែងរក' : 'Ready to explore'
   };
 
   return (
@@ -253,7 +174,7 @@ function Explore({ language = 'en' }) {
                   </div>
 
                   <div className="place-card-footer">
-                    <button className="details-btn">
+                    <button className="details-btn" onClick={() => setSelectedPlace(place)}>
                       {labels.details} <FontAwesomeIcon icon={faArrowRight} />
                     </button>
                   </div>
@@ -263,6 +184,79 @@ function Explore({ language = 'en' }) {
           })}
         </div>
       </div>
+
+      {selectedPlace && (
+        <div className="detail-overlay" onClick={() => setSelectedPlace(null)}>
+          <div className="detail-modal" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
+            <button className="detail-close-btn" onClick={() => setSelectedPlace(null)} aria-label={labels.close}>
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
+
+            <div className="detail-hero">
+              <img src={selectedPlace.image} alt={getLocalizedText(selectedPlace.title, 'Destination')} className="detail-hero-image" />
+              <div className="detail-hero-content">
+                <div className="detail-badges">
+                  <span className="detail-category-pill">{getLocalizedText(selectedPlace.category, 'Destination')}</span>
+                  {selectedPlace.isPopular && <span className="detail-popular-pill">{labels.badge}</span>}
+                </div>
+
+                <h2 className="detail-title">{getLocalizedText(selectedPlace.title, 'Destination')}</h2>
+                <p className="detail-description">{getDetailSummary(selectedPlace)}</p>
+
+                <div className="detail-hero-stats">
+                  <div className="detail-stat-pill">
+                    <FontAwesomeIcon icon={faLocationDot} /> {getLocalizedText(selectedPlace.location, 'Location')}
+                  </div>
+                  <div className="detail-stat-pill">
+                    <FontAwesomeIcon icon={faStar} /> {selectedPlace.rating} ({selectedPlace.reviews})
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="detail-content">
+              <div className="detail-block">
+                <h3>{labels.overview}</h3>
+                <p>{getDetailSummary(selectedPlace)}</p>
+              </div>
+
+              <div className="detail-grid">
+                <div className="detail-card">
+                  <h4>{labels.highlights}</h4>
+                  <ul className="detail-list">
+                    {getHighlights(selectedPlace).map((item, index) => (
+                      <li key={index}>
+                        <FontAwesomeIcon icon={faCircleCheck} /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="detail-card">
+                  <h4>{labels.plan}</h4>
+                  <div className="detail-plan-item">
+                    <FontAwesomeIcon icon={faClock} />
+                    <div>
+                      <strong>{labels.bestTime}</strong>
+                      <p>{isKhmer ? 'ពេលព្រឹកឬល្ងាចដើម្បីទទួលបានទិដ្ឋភាពល្អបំផុត' : 'Morning or late afternoon for the best atmosphere'}</p>
+                    </div>
+                  </div>
+                  <div className="detail-plan-item">
+                    <FontAwesomeIcon icon={faCompass} />
+                    <div>
+                      <strong>{labels.entryFee}</strong>
+                      <p>{selectedPlace.price}</p>
+                    </div>
+                  </div>
+                  <button className="detail-cta-btn">
+                    {labels.ready} <FontAwesomeIcon icon={faArrowRight} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
