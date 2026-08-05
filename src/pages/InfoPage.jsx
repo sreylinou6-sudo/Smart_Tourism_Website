@@ -9,4 +9,4 @@ function InfoPage({ language = 'en' }) {
   return <Info language={language} />;
 }
 
-export default InfoPage
+export default InfoPage;
