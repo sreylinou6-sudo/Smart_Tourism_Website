@@ -12,8 +12,8 @@ const placesData = [
     },
     {
         id: 2,
-        title: { en: 'Koh Rong Sanloem Island', kh: 'កោះកុងសែន' },
-        location: { en: 'Sihanoukville', kh: 'ព្រះសីហនុ' },
+        title: { en: 'Koh Rong ', kh: 'កោះរុង' },
+        location: { en: 'Koh Kong', kh: 'កោះកុង' },
         category: { en: 'Beaches', kh: 'ឆ្នេរខ្សាច់' },
         rating: 4.8,
         reviews: 850,

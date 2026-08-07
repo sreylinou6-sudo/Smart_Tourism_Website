@@ -216,3 +216,38 @@
     grid-template-columns: 1fr;
   }
 }
+/* btn change language */
+/* Container សម្រាប់ប៊ូតុងប្តូរភាសា */
+.language-switch-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+/* ប៊ូតុងប្តូរភាសា */
+.language-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.language-switch-btn:hover {
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 62, 131, 0.12);
+}
+
+.price-unit {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}

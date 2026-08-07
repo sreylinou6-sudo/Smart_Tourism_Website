@@ -24,7 +24,7 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
   const closeLanguageMenu = () => setIsLanguageMenuOpen(false);
 
   const navLabels = {
-    brand: isKhmer ? 'ទេសចរណ៍ឆ្លាត' : 'Smart Tourism',
+    brand: isKhmer ? 'ទេសចរណ៍ឆ្លាតវៃ' : 'Smart Tourism',
     home: isKhmer ? 'ទំព័រដើម' : 'Home',
     explore: isKhmer ? 'ស្វែងរក' : 'Explore',
     info: isKhmer ? 'ព័ត៌មានធ្វើដំណើរ' : 'Travel Info',

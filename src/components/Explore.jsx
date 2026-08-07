@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import '../styles/Explore.css';
-import placesData from '../data/placesData'; // Import the places data
+import placesData from '../data/placesData'; 
 
 function Explore({ language = 'en' }) {
   const [favorites, setFavorites] = useState([]);
@@ -168,7 +168,6 @@ function Explore({ language = 'en' }) {
                   </div>
 
                   <h3 className="place-title">{currentTitle}</h3>
-
                   <div className="place-location">
                     <FontAwesomeIcon icon={faLocationDot} /> {currentLocation}, {isKhmer ? 'កម្ពុជា' : 'Cambodia'}
                   </div>
@@ -260,5 +259,4 @@ function Explore({ language = 'en' }) {
     </div>
   );
 }
-
 export default Explore;
