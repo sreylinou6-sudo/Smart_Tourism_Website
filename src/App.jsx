@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AppRoutes from './routes/AppRoutes';
+import { LanguageProvider } from './context/LanguageContext';
 import './App.css';
 
 function App() {
@@ -24,7 +25,12 @@ function App() {
     localStorage.setItem('tourism-language', language);
   }, [theme, language]);
 
-  return <AppRoutes theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage} />;
+  return (
+    /* បញ្ជូន language និង setLanguage ចូលទៅក្នុង LanguageProvider */
+    <LanguageProvider language={language} setLanguage={setLanguage}>
+      <AppRoutes theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage} />
+    </LanguageProvider>
+  );
 }
 
 export default App;

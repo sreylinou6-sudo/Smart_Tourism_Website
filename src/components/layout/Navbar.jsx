@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logoImg from '../../assets/logoApp.png';
+import { useLanguage } from '../../context/LanguageContext'; 
 import {
   faCompass,
   faBars,
@@ -13,32 +14,24 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import '../../styles/Navbar.css';
 
-function Navbar({ theme, setTheme, language, setLanguage }) {
+function Navbar({ theme, setTheme }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
-  const isKhmer = language === 'kh';
+
+  // ទាញយក lang (ភាសាបច្ចុប្បន្ន), setLang (មុខងារប្តូរភាសា) និង t (មុខងារបកប្រែ) ពី Context
+  const { lang, setLang, t } = useLanguage();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const toggleLanguageMenu = () => setIsLanguageMenuOpen((prev) => !prev);
   const closeLanguageMenu = () => setIsLanguageMenuOpen(false);
 
-  const navLabels = {
-    brand: isKhmer ? 'ទេសចរណ៍ឆ្លាតវៃ' : 'Smart Tourism',
-    home: isKhmer ? 'ទំព័រដើម' : 'Home',
-    explore: isKhmer ? 'ស្វែងរក' : 'Explore',
-    info: isKhmer ? 'ព័ត៌មានធ្វើដំណើរ' : 'Travel Info',
-    gallery: isKhmer ? 'វិចិត្រសារមន្ទីរ' : 'Gallery',
-    about: isKhmer ? 'អំពីពួកយើង' : 'About Us',
-    cta: isKhmer ? 'ទាញយកកម្មវិធី' : 'Download App'
-  };
-
   return (
     <header className="navbar-header">
       <nav className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           <img src={logoImg} alt="Logo" className="navbar-logo-icon" />
-          <span>{navLabels.brand}</span>
+          <span>{t('nav.brand')}</span>
         </Link>
 
         <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
@@ -48,7 +41,7 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
               onClick={closeMobileMenu}
             >
-              {navLabels.home}
+              {t('nav.home')}
             </NavLink>
           </li>
           <li className="nav-item">
@@ -57,7 +50,7 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
               onClick={closeMobileMenu}
             >
-              {navLabels.explore}
+              {t('nav.explore')}
             </NavLink>
           </li>
           <li className="nav-item">
@@ -66,7 +59,7 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
               onClick={closeMobileMenu}
             >
-              {navLabels.info}
+              {t('nav.info')}
             </NavLink>
           </li>
           <li className="nav-item">
@@ -75,7 +68,7 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
               onClick={closeMobileMenu}
             >
-              {navLabels.gallery}
+              {t('nav.gallery')}
             </NavLink>
           </li>
           <li className="nav-item">
@@ -84,7 +77,7 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
               className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
               onClick={closeMobileMenu}
             >
-              {navLabels.about}
+              {t('nav.about')}
             </NavLink>
           </li>
         </ul>
@@ -99,7 +92,7 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
               onClick={toggleLanguageMenu}
             >
               <FontAwesomeIcon icon={faGlobe} />
-              <span>{isKhmer ? 'KH' : 'EN'}</span>
+              <span>{lang === 'kh' ? 'KH' : 'EN'}</span>
               <FontAwesomeIcon icon={faChevronDown} className="language-dropdown-arrow" />
             </button>
 
@@ -107,9 +100,9 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
               <div className="language-dropdown-menu" role="menu">
                 <button
                   type="button"
-                  className={`language-option ${language === 'en' ? 'active' : ''}`}
+                  className={`language-option ${lang === 'en' ? 'active' : ''}`}
                   onClick={() => {
-                    setLanguage('en');
+                    setLang('en');
                     closeLanguageMenu();
                   }}
                 >
@@ -117,9 +110,9 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
                 </button>
                 <button
                   type="button"
-                  className={`language-option ${language === 'kh' ? 'active' : ''}`}
+                  className={`language-option ${lang === 'kh' ? 'active' : ''}`}
                   onClick={() => {
-                    setLanguage('kh');
+                    setLang('kh');
                     closeLanguageMenu();
                   }}
                 >
@@ -139,7 +132,7 @@ function Navbar({ theme, setTheme, language, setLanguage }) {
           </button>
 
           <Link to="#" className="btn-primary" onClick={closeMobileMenu}>
-            {navLabels.cta}
+            {t('nav.cta')}
           </Link>
 
           <button

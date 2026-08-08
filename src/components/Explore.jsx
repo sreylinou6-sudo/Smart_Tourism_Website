@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faStar,
@@ -13,25 +14,38 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import '../styles/Explore.css';
-import placesData from '../data/placesData'; 
+import placesData from '../data/placesData';
 
 function Explore({ language = 'en' }) {
+  const [searchParams, setSearchParams] = useSearchParams(); // 2. ប្រើ URL Search Params
   const [favorites, setFavorites] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedPlace, setSelectedPlace] = useState(null);
   const isKhmer = language === 'kh';
+
+  const currentPlaceId = searchParams.get('placeId');
+
+  const selectedPlace = placesData.find(
+    (p) => String(p.id) === String(currentPlaceId)
+  );
 
   useEffect(() => {
     const handleEsc = (event) => {
       if (event.key === 'Escape') {
-        setSelectedPlace(null);
+        closeDetail();
       }
     };
-
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
   }, []);
+
+  const openDetail = (id) => {
+    setSearchParams({ placeId: id });
+  };
+
+  const closeDetail = () => {
+    setSearchParams({});
+  };
 
   const toggleFavorite = (id) => {
     if (favorites.includes(id)) {
@@ -49,8 +63,12 @@ function Explore({ language = 'en' }) {
     const categoryValue = place.category[isKhmer ? 'kh' : 'en'];
     const titleValue = place.title[isKhmer ? 'kh' : 'en'];
     const locationValue = place.location[isKhmer ? 'kh' : 'en'];
-    const matchesCategory = selectedCategory === 'All' || selectedCategory === 'ទាំងអស់' || categoryValue === selectedCategory;
-    const matchesSearch = titleValue.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    const matchesCategory =
+      selectedCategory === 'All' ||
+      selectedCategory === 'ទាំងអស់' ||
+      categoryValue === selectedCategory;
+    const matchesSearch =
+      titleValue.toLowerCase().includes(searchTerm.toLowerCase()) ||
       locationValue.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
@@ -173,7 +191,8 @@ function Explore({ language = 'en' }) {
                   </div>
 
                   <div className="place-card-footer">
-                    <button className="details-btn" onClick={() => setSelectedPlace(place)}>
+                    {/* ប្តូរមកហៅ openDetail(place.id) វិញ */}
+                    <button className="details-btn" onClick={() => openDetail(place.id)}>
                       {labels.details} <FontAwesomeIcon icon={faArrowRight} />
                     </button>
                   </div>
@@ -184,10 +203,11 @@ function Explore({ language = 'en' }) {
         </div>
       </div>
 
+      {/* POPUP MODAL (វាបង្ហាញប្រសិនបើចោទត្រូវ id ក្នុង URL) */}
       {selectedPlace && (
-        <div className="detail-overlay" onClick={() => setSelectedPlace(null)}>
+        <div className="detail-overlay" onClick={closeDetail}>
           <div className="detail-modal" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
-            <button className="detail-close-btn" onClick={() => setSelectedPlace(null)} aria-label={labels.close}>
+            <button className="detail-close-btn" onClick={closeDetail} aria-label={labels.close}>
               <FontAwesomeIcon icon={faArrowLeft} />
             </button>
 
@@ -259,4 +279,5 @@ function Explore({ language = 'en' }) {
     </div>
   );
 }
+
 export default Explore;
