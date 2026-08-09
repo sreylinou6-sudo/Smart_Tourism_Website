@@ -3,28 +3,14 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faTwitter, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+
 import logoImg from '../../assets/logoApp.png';
+import { useLanguage } from '../../context/LanguageContext';
 import '../../styles/Footer.css';
 
-function Footer({ language }) {
-  const isKhmer = language === 'kh';
-
-  const content = {
-    brand: isKhmer ? 'ទេសចរណ៍ឆ្លាតវៃ' : 'Smart Tourism',
-    intro: isKhmer
-      ? 'ច្រកចេញរបស់អ្នកដើម្បីស្វែងយល់ពីកន្លែងធ្វើដំណើរដែលបានជ្រើសរើសក៏ដូចជាឱកាសជីវិតក្នុងស្រុក។'
-      : 'Your gateway to discovering curated destinations, local tips, and seamless exploration tools around the globe.',
-    navTitle: isKhmer ? 'ការរុករក' : 'Navigation',
-    categoryTitle: isKhmer ? 'ប្រភេទ' : 'Categories',
-    newsletterTitle: isKhmer ? 'ទទួលបានព័ត៌មានថ្មី' : 'Stay Updated',
-    newsletterText: isKhmer
-      ? 'ចុះឈ្មោះទទួលបានការណែនាំទេសចរណ៍ និងការផ្តល់ជូនពិសេស។'
-      : 'Subscribe for travel guides, local insights, and exclusive offers.',
-    placeholder: isKhmer ? 'បញ្ចូលអ៊ីមែលរបស់អ្នក' : 'Enter your email',
-    privacy: isKhmer ? 'គោលការណ៍ឯកជន' : 'Privacy Policy',
-    terms: isKhmer ? 'លក្ខខណ្ឌប្រើប្រាស់' : 'Terms of Service',
-    copyright: isKhmer ? 'រក្សាសិទ្ធិគ្រប់យ៉ាង' : 'All rights reserved'
-  };
+function Footer() {
+  // ទាញយក t function ពី Custom Hook useLanguage
+  const { t } = useLanguage();
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -34,54 +20,59 @@ function Footer({ language }) {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-grid">
+          
+          {/* Brand Section */}
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
               <img src={logoImg} alt="Smart Tourism logo" className="footer-logo-icon" />
-              <span>{content.brand}</span>
+              <span>{t('footer.brand')}</span>
             </Link>
-            <p className="footer-text">{content.intro}</p>
-            <div className="social-links">
-              <a href="#" className="social-link" aria-label="Twitter">
+            <p className="footer-desc">{t('footer.intro')}</p>
+            <div className="footer-socials">
+              <a href="#" className="social-icon" aria-label="Twitter">
                 <FontAwesomeIcon icon={faTwitter} />
               </a>
-              <a href="#" className="social-link" aria-label="Instagram">
+              <a href="#" className="social-icon" aria-label="Instagram">
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
-              <a href="#" className="social-link" aria-label="Facebook">
+              <a href="#" className="social-icon" aria-label="Facebook">
                 <FontAwesomeIcon icon={faFacebook} />
               </a>
             </div>
           </div>
 
-          <div className="footer-section">
-            <h4 className="footer-heading">{content.navTitle}</h4>
+          {/* Navigation Links */}
+          <div className="footer-col">
+            <h4>{t('footer.navTitle')}</h4>
             <ul className="footer-links">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/explore">Explore</Link></li>
-              <li><Link to="/info">Travel Info</Link></li>
-              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/">{t('nav.home')}</Link></li>
+              <li><Link to="/explore">{t('nav.explore')}</Link></li>
+              <li><Link to="/info">{t('nav.info')}</Link></li>
+              <li><Link to="/about">{t('nav.about')}</Link></li>
             </ul>
           </div>
 
-          <div className="footer-section">
-            <h4 className="footer-heading">{content.categoryTitle}</h4>
+          {/* Category Links */}
+          <div className="footer-col">
+            <h4>{t('footer.categoryTitle')}</h4>
             <ul className="footer-links">
-              <li><Link to="/explore?cat=beaches">Beaches</Link></li>
-              <li><Link to="/explore?cat=mountains">Mountains</Link></li>
-              <li><Link to="/explore?cat=culture">Culture & History</Link></li>
-              <li><Link to="/explore?cat=food">Local Cuisine</Link></li>
+              <li><Link to="/explore?cat=beaches">{t('footer.categories.beaches')}</Link></li>
+              <li><Link to="/explore?cat=mountains">{t('footer.categories.mountains')}</Link></li>
+              <li><Link to="/explore?cat=culture">{t('footer.categories.culture')}</Link></li>
+              <li><Link to="/explore?cat=food">{t('footer.categories.food')}</Link></li>
             </ul>
           </div>
 
-          <div className="footer-section newsletter-section">
-            <h4 className="footer-heading">{content.newsletterTitle}</h4>
-            <p className="newsletter-text">{content.newsletterText}</p>
+          {/* Newsletter Section */}
+          <div className="footer-col">
+            <h4>{t('footer.newsletterTitle')}</h4>
+            <p className="newsletter-text">{t('footer.newsletterText')}</p>
             <form onSubmit={handleSubscribe} className="newsletter-form">
               <div className="input-group">
                 <FontAwesomeIcon icon={faEnvelope} className="input-icon" />
                 <input
                   type="email"
-                  placeholder={content.placeholder}
+                  placeholder={t('footer.placeholder')}
                   required
                   className="newsletter-input"
                 />
@@ -91,15 +82,17 @@ function Footer({ language }) {
               </div>
             </form>
           </div>
+
         </div>
 
+        {/* Footer Bottom / Copyright Bar */}
         <div className="footer-bottom">
           <p>
-            &copy; {new Date().getFullYear()} {content.brand}. {content.copyright}.
+            &copy; {new Date().getFullYear()} {t('footer.brand')}. {t('footer.copyright')}.
           </p>
-          <div className="legal-links">
-            <Link to="/privacy">{content.privacy}</Link>
-            <Link to="/terms">{content.terms}</Link>
+          <div className="footer-bottom-links">
+            <Link to="/privacy">{t('footer.privacy')}</Link>
+            <Link to="/terms">{t('footer.terms')}</Link>
           </div>
         </div>
       </div>

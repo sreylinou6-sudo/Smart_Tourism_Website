@@ -1,0 +1,26 @@
+{
+  "en": {
+    "brand": "Smart Tourism",
+    "intro": "Your gateway to discovering curated destinations, local tips, and seamless exploration tools around the globe.",
+    "navTitle": "Navigation",
+    "categoryTitle": "Categories",
+    "newsletterTitle": "Stay Updated",
+    "newsletterText": "Subscribe for travel guides, local insights, and exclusive offers.",
+    "placeholder": "Enter your email",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "All rights reserved",
+    "nav": {
+      "home": "Home",
+      "explore": "Explore",
+      "info": "Travel Info",
+      "about": "About Us"
+    },
+    "categories": {
+      "beaches": "Beaches",
+      "mountains": "Mountains",
+      "culture": "Culture & History",
+      "food": "Local Cuisine"
+    }
+  }
+}

@@ -24,7 +24,7 @@ function App() {
     localStorage.setItem('tourism-theme', theme);
     localStorage.setItem('tourism-language', language);
   }, [theme, language]);
-
+ 
   return (
     /* បញ្ជូន language និង setLanguage ចូលទៅក្នុង LanguageProvider */
     <LanguageProvider language={language} setLanguage={setLanguage}>

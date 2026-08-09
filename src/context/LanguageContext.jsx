@@ -1,47 +1,44 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+import translations from '../locales';
 
-// import Englsih
-import enNav from '../locales/en/nav.json';
-import enExplore from '../locales/en/explore.json';
+export const LanguageContext = createContext();
 
-// Import Khmer
-import khNav from '../locales/kh/nav.json';
-import khExplore from '../locales/kh/explore.json';
+export const LanguageProvider = ({ children }) => {
+  const [lang, setLang] = useState('kh');
 
+  const t = (key) => {
+    if (!key) return '';
+    const currentTrans = translations[lang] || translations.en || {};
 
-// បញ្ចូល File តាមផ្នែកឱ្យទៅជា Object ធំមួយតាមភាសា
-const translations = {
-  en: {
-    nav: enNav,
-    explore: enExplore
-    
-  },
-  kh: {
-    nav: khNav,
-    explore: khExplore
-    
-  }
-};
-
-const LanguageContext = createContext();
-export const LanguageProvider = ({ children, language, setLanguage }) => {
-  const t = (keyPath) => {
-    const keys = keyPath.split('.');
-    let result = translations[language] || translations['en'];
-
-    for (const key of keys) {
-      if (result && result[key] !== undefined) {
-        result = result[key];
-      } else {
-        return keyPath;
-      }
+    // ១. សាកល្បងរក Direct Key (ឧ. "nav.home")
+    if (currentTrans[key]) {
+      return currentTrans[key];
     }
-    return result;
+    const keys = key.split('.');
+    let result = currentTrans;
+    for (const k of keys) {
+      result = result?.[k];
+    }
+
+    if (result && typeof result === 'string') {
+      return result;
+    }
+
+    // បើនៅតែរកមិនឃើញ ឲ្យចេញ Text ដើម
+    return key;
   };
+
   return (
-    <LanguageContext.Provider value={{ lang: language, setLang: setLanguage, t }}>
+    <LanguageContext.Provider value={{ lang, setLang, t }}>
       {children}
     </LanguageContext.Provider>
   );
 };
-export const useLanguage = () => useContext(LanguageContext);
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};

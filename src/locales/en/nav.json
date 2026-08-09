@@ -1,9 +1,11 @@
 {
-  "brand": "Smart Tourism",
-  "home": "Home",
-  "explore": "Explore",
-  "info": "Travel Info",
-  "gallery": "Gallery",
-  "about": "About Us",
-  "cta": "Download App"
+  "nav": {
+    "brand": "Smart Tourism",
+    "home": "Home",
+    "explore": "Explore",
+    "info": "Info",
+    "gallery": "Grallry",
+    "about": "About Us",
+    "cta": "Download Now"
+  }
 }
