@@ -1,9 +1,11 @@
-import nav from './nav.json';
+import nav from './nav.json';   
 import footer from './footer.json';
 import explore from './explore.json';
+import about from './about.json';
 
 export default {
-  nav,        // ✅ ដូច្នេះ translations.en.nav.brand ត្រូវគ្នាហើយ
+  nav,      
   footer,
-  explore
+  explore,
+  about: about.about
 };

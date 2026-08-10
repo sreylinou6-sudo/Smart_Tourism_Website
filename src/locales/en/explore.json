@@ -1,14 +1,26 @@
 {
-    "title": "Explore Destinations",
-    "subtitle": "Find top-rated spots and hidden treasures across the region.",
-    "searchPlaceholder": "Search destination or province...",
-    "filterProvince": "Filter by Province",
-    "sortBy": "Sort by",
-    "topRated": "Top Rated",
-    "entry": "Entry",
-    "viewDetails": "View Details",
-    "all": "All",
-    "overview": "Overview",
-    "highlights": "Highlights",
-    "planVisit": "Plan your visit"
+  "title": "Explore Destinations",
+  "subtitle": "Find top-rated spots and hidden treasures across the region.",
+  "search": "Search destination or province...",
+  "badge": "Top Rated",
+  "entry": "Entry",
+  "details": "View Details",
+  "save": "Save place",
+  "overview": "Overview",
+  "highlights": "Highlights",
+  "plan": "Plan your visit",
+  "bestTime": "Best time",
+  "entryFee": "Entry fee",
+  "close": "Close",
+  "ready": "Ready to explore",
+  "bestTimeText": "Morning or late afternoon for the best atmosphere",
+  "country": "Cambodia",
+  "fallbackTitle": "This destination",
+  "fallbackSummary": "is a remarkable place that offers scenic beauty, cultural charm, and memorable experiences for every traveler.",
+  "fallbackHighlights": [
+    "Scenic natural views",
+    "Great photo spots",
+    "Perfect for discovery and relaxation"
+  ],
+  "categories": ["All", "Historical", "Beaches", "Nature", "Culture", "Adventure"]
 }

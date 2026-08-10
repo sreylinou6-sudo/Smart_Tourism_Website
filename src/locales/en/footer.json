@@ -1,5 +1,4 @@
 {
-  "en": {
     "brand": "Smart Tourism",
     "intro": "Your gateway to discovering curated destinations, local tips, and seamless exploration tools around the globe.",
     "navTitle": "Navigation",
@@ -22,5 +21,4 @@
       "culture": "Culture & History",
       "food": "Local Cuisine"
     }
-  }
 }

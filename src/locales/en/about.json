@@ -1,0 +1,51 @@
+{
+  "about": {
+    "badge": "About Smart Tourism",
+    "title": "Discover Cambodia with confidence and ease.",
+    "subtitle": "We help travelers explore memorable destinations through thoughtful guidance, local insights, and practical travel tools.",
+    "missionTitle": "Our mission",
+    "missionText": "To make tourism more welcoming, informed, and rewarding by connecting visitors with curated places, cultural stories, and reliable planning support.",
+    "valuesTitle": "What makes us different",
+    "values": [
+      {
+        "title": "Curated discovery",
+        "text": "Every destination is selected to offer meaningful experiences and lasting memories.",
+        "icon": "compass"
+      },
+      {
+        "title": "Local connection",
+        "text": "We highlight communities, traditions, and culture so travel feels authentic and respectful.",
+        "icon": "users"
+      },
+      {
+        "title": "Sustainable travel",
+        "text": "We encourage experiences that support nature, heritage, and long-term community wellbeing.",
+        "icon": "leaf"
+      }
+    ],
+    "statsTitle": "Why travelers choose us",
+    "stats": [
+      { "value": "100+", "label": "handpicked spots" },
+      { "value": "4.9/5", "label": "average traveler rating" },
+      { "value": "24/7", "label": "travel support" }
+    ],
+    "faqTitle": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "q": "How does Smart Tourism help my travel in Cambodia?",
+        "a": "We provide curated destination recommendations, cultural guidelines, interactive maps, and 24/7 support to make your trip effortless."
+      },
+      {
+        "q": "Can I contact local guides directly through this platform?",
+        "a": "Yes! We connect you with verified local guides and authentic experiences across all major provinces."
+      },
+      {
+        "q": "Is the platform free to use for travelers?",
+        "a": "Exploring destinations, guides, and itineraries on Smart Tourism is 100% free."
+      }
+    ],
+    "contactTitle": "Ready to Explore?",
+    "contactSubtitle": "Connect with our team directly for custom itineraries or instant travel assistance.",
+    "cta": "Chat on Telegram"
+  }
+}

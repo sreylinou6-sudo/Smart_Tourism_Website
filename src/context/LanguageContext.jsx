@@ -10,22 +10,21 @@ export const LanguageProvider = ({ children }) => {
     if (!key) return '';
     const currentTrans = translations[lang] || translations.en || {};
 
-    // ១. សាកល្បងរក Direct Key (ឧ. "nav.home")
     if (currentTrans[key]) {
       return currentTrans[key];
     }
+
     const keys = key.split('.');
     let result = currentTrans;
     for (const k of keys) {
       result = result?.[k];
     }
 
-    if (result && typeof result === 'string') {
-      return result;
+    if (result !== undefined) {
+      return result;   
     }
 
-    // បើនៅតែរកមិនឃើញ ឲ្យចេញ Text ដើម
-    return key;
+    return key; 
   };
 
   return (
