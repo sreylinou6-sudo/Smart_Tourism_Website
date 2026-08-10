@@ -1,9 +1,9 @@
-import navbar from './nav.json';
+import nav from './nav.json';
 import footer from './footer.json';
 import explore from './explore.json';
 
 export default {
-  navbar,
+  nav,
   footer,
   explore
 };

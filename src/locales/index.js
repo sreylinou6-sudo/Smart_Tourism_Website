@@ -1,5 +1,5 @@
-import en from './en';
-import kh from './kh';
+import en from './en/en';
+import kh from './kh/kh';
 
 const translations = {
   en,
