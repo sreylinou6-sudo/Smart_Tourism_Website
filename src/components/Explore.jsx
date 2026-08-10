@@ -16,14 +16,11 @@ import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import { useLanguage } from '../context/LanguageContext';
 import '../styles/Explore.css';
 
-// Import placesData
-import placesData from '../data/placesData';
-
 function Explore() {
   const { t, language } = useLanguage();
   const isKhmer = language === 'kh';
 
-  // ទាញយក Text Labels ចេញពី explore.json
+  // ទាញយក Content និង Places ទាំងអស់ចេញពី explore.json
   const content = t('explore');
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -31,7 +28,13 @@ function Explore() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
+  // Reset category ពេលប្តូរភាសា
+  useEffect(() => {
+    setSelectedCategory(isKhmer ? 'ទាំងអស់' : 'All');
+  }, [language, isKhmer]);
+
   const currentPlaceId = searchParams.get('placeId');
+  const placesData = content?.places || [];
 
   const selectedPlace = placesData.find(
     (p) => String(p.id) === String(currentPlaceId)
@@ -39,64 +42,33 @@ function Explore() {
 
   useEffect(() => {
     const handleEsc = (event) => {
-      if (event.key === 'Escape') {
-        closeDetail();
-      }
+      if (event.key === 'Escape') closeDetail();
     };
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
   }, []);
 
-  const openDetail = (id) => {
-    setSearchParams({ placeId: id });
-  };
-
-  const closeDetail = () => {
-    setSearchParams({});
-  };
+  const openDetail = (id) => setSearchParams({ placeId: id });
+  const closeDetail = () => setSearchParams({});
 
   const toggleFavorite = (id) => {
-    if (favorites.includes(id)) {
-      setFavorites((prev) => prev.filter((favId) => favId !== id));
-    } else {
-      setFavorites((prev) => [...prev, id]);
-    }
+    setFavorites((prev) =>
+      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
+    );
   };
 
   if (!content) return null;
 
-  // Helper សម្រាប់ទាញយក Text តាមភាសា
-  const getLocalizedText = (value) => {
-    if (!value) return '';
-    if (typeof value === 'string') return value;
-    return value[language] || value['en'] || '';
-  };
-
-  // Filter Data ឱ្យត្រូវគ្នាតាម Category និង Search
+  // Filter Data យ៉ាងសាមញ្ញ
   const filteredPlaces = placesData.filter((place) => {
-    // 1. Check Category
-    let matchesCategory = false;
-    if (selectedCategory === 'All' || selectedCategory === 'ទាំងអស់') {
-      matchesCategory = true;
-    } else if (typeof place.category === 'object') {
-      // ប្រសិនបើ place.category ជា object { en: '...', kh: '...' }
-      matchesCategory =
-        place.category.en === selectedCategory ||
-        place.category.kh === selectedCategory ||
-        place.category[language] === selectedCategory;
-    } else {
-      // ប្រសិនបើ place.category ជា string ផ្ទាល់
-      matchesCategory =
-        place.category === selectedCategory ||
-        getLocalizedText(place.category) === selectedCategory;
-    }
+    const matchesCategory =
+      selectedCategory === 'All' ||
+      selectedCategory === 'ទាំងអស់' ||
+      place.category === selectedCategory;
 
-    // 2. Check Search
-    const titleText = getLocalizedText(place.title);
-    const locationText = getLocalizedText(place.location);
     const matchesSearch =
-      titleText.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      locationText.toLowerCase().includes(searchTerm.toLowerCase());
+      place.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      place.location?.toLowerCase().includes(searchTerm.toLowerCase());
 
     return matchesCategory && matchesSearch;
   });
@@ -137,58 +109,51 @@ function Explore() {
 
         <div className="places-grid">
           {filteredPlaces.length > 0 ? (
-            filteredPlaces.map((place) => {
-              const currentTitle = getLocalizedText(place.title);
-              const currentLocation = getLocalizedText(place.location);
-              const currentCategory = getLocalizedText(place.category);
+            filteredPlaces.map((place) => (
+              <div key={place.id} className="place-card">
+                <div className="place-image-container">
+                  <img src={place.image} alt={place.title} className="place-image" />
+                  {place.isPopular && <span className="popular-badge">{content.badge}</span>}
 
-              return (
-                <div key={place.id} className="place-card">
-                  <div className="place-image-container">
-                    <img src={place.image} alt={currentTitle} className="place-image" />
+                  <button
+                    className={`favorite-btn ${favorites.includes(place.id) ? 'active' : ''}`}
+                    onClick={() => toggleFavorite(place.id)}
+                    aria-label={content.save}
+                  >
+                    <FontAwesomeIcon
+                      icon={favorites.includes(place.id) ? faHeart : faHeartRegular}
+                      className={favorites.includes(place.id) ? 'active' : ''}
+                    />
+                  </button>
 
-                    {place.isPopular && <span className="popular-badge">{content.badge}</span>}
-
-                    <button
-                      className={`favorite-btn ${favorites.includes(place.id) ? 'active' : ''}`}
-                      onClick={() => toggleFavorite(place.id)}
-                      aria-label={content.save}
-                    >
-                      <FontAwesomeIcon
-                        icon={favorites.includes(place.id) ? faHeart : faHeartRegular}
-                        className={favorites.includes(place.id) ? 'active' : ''}
-                      />
-                    </button>
-
-                    <div className="price-tag">
-                      <span>{content.entry}:</span> <strong>{place.price}</strong>
-                    </div>
-                  </div>
-
-                  <div className="place-card-body">
-                    <div className="place-meta">
-                      <span className="place-category">{currentCategory}</span>
-                      <div className="place-rating">
-                        <FontAwesomeIcon icon={faStar} className="star-icon" />
-                        <span>{place.rating}</span>
-                        <small>({place.reviews})</small>
-                      </div>
-                    </div>
-
-                    <h3 className="place-title">{currentTitle}</h3>
-                    <div className="place-location">
-                      <FontAwesomeIcon icon={faLocationDot} /> {currentLocation}, {content.country || (isKhmer ? 'កម្ពុជា' : 'Cambodia')}
-                    </div>
-
-                    <div className="place-card-footer">
-                      <button className="details-btn" onClick={() => openDetail(place.id)}>
-                        {content.details} <FontAwesomeIcon icon={faArrowRight} />
-                      </button>
-                    </div>
+                  <div className="price-tag">
+                    <span>{content.entry}:</span> <strong>{place.price}</strong>
                   </div>
                 </div>
-              );
-            })
+
+                <div className="place-card-body">
+                  <div className="place-meta">
+                    <span className="place-category">{place.category}</span>
+                    <div className="place-rating">
+                      <FontAwesomeIcon icon={faStar} className="star-icon" />
+                      <span>{place.rating}</span>
+                      <small>({place.reviews})</small>
+                    </div>
+                  </div>
+
+                  <h3 className="place-title">{place.title}</h3>
+                  <div className="place-location">
+                    <FontAwesomeIcon icon={faLocationDot} /> {place.location}, {isKhmer ? 'កម្ពុជា' : 'Cambodia'}
+                  </div>
+
+                  <div className="place-card-footer">
+                    <button className="details-btn" onClick={() => openDetail(place.id)}>
+                      {content.details} <FontAwesomeIcon icon={faArrowRight} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
           ) : (
             <div style={{ textAlign: 'center', gridColumn: '1 / -1', padding: '40px 0' }}>
               <p>{isKhmer ? 'មិនមានទិន្នន័យសម្រាប់បង្ហាញទេ' : 'No places found'}</p>
@@ -206,21 +171,19 @@ function Explore() {
             </button>
 
             <div className="detail-hero">
-              <img src={selectedPlace.image} alt={getLocalizedText(selectedPlace.title)} className="detail-hero-image" />
+              <img src={selectedPlace.image} alt={selectedPlace.title} className="detail-hero-image" />
               <div className="detail-hero-content">
                 <div className="detail-badges">
-                  <span className="detail-category-pill">{getLocalizedText(selectedPlace.category)}</span>
+                  <span className="detail-category-pill">{selectedPlace.category}</span>
                   {selectedPlace.isPopular && <span className="detail-popular-pill">{content.badge}</span>}
                 </div>
 
-                <h2 className="detail-title">{getLocalizedText(selectedPlace.title)}</h2>
-                <p className="detail-description">
-                  {getLocalizedText(selectedPlace.details?.summary) || content.fallbackSummary}
-                </p>
+                <h2 className="detail-title">{selectedPlace.title}</h2>
+                <p className="detail-description">{selectedPlace.details?.summary}</p>
 
                 <div className="detail-hero-stats">
                   <div className="detail-stat-pill">
-                    <FontAwesomeIcon icon={faLocationDot} /> {getLocalizedText(selectedPlace.location)}
+                    <FontAwesomeIcon icon={faLocationDot} /> {selectedPlace.location}
                   </div>
                   <div className="detail-stat-pill">
                     <FontAwesomeIcon icon={faStar} /> {selectedPlace.rating} ({selectedPlace.reviews})
@@ -232,14 +195,14 @@ function Explore() {
             <div className="detail-content">
               <div className="detail-block">
                 <h3>{content.overview}</h3>
-                <p>{getLocalizedText(selectedPlace.details?.summary) || content.fallbackSummary}</p>
+                <p>{selectedPlace.details?.summary}</p>
               </div>
 
               <div className="detail-grid">
                 <div className="detail-card">
                   <h4>{content.highlights}</h4>
                   <ul className="detail-list">
-                    {(getLocalizedText(selectedPlace.details?.highlights) || content.fallbackHighlights || []).map((item, index) => (
+                    {(selectedPlace.details?.highlights || []).map((item, index) => (
                       <li key={index}>
                         <FontAwesomeIcon icon={faCircleCheck} /> {item}
                       </li>
@@ -253,7 +216,7 @@ function Explore() {
                     <FontAwesomeIcon icon={faClock} />
                     <div>
                       <strong>{content.bestTime}</strong>
-                      <p>{content.bestTimeText}</p>
+                      <p>{isKhmer ? 'ពេលព្រឹកឬល្ងាចដើម្បីទទួលបានទិដ្ឋភាពល្អបំផុត' : 'Morning or late afternoon for the best atmosphere'}</p>
                     </div>
                   </div>
                   <div className="detail-plan-item">

@@ -5,7 +5,7 @@
   "badge": "វាយតម្លៃខ្ពស់",
   "entry": "ចូល",
   "details": "មើលព័ត៌មានលម្អិត",
-  "save": "រក្សាភាសា",
+  "save": "រក្សាទុក",
   "overview": "ទិដ្ឋភាពទូទៅ",
   "highlights": "ចំណុចសំខាន់",
   "plan": "រៀបចំដំណើរទស្សនា",
@@ -13,14 +13,97 @@
   "entryFee": "ថ្លៃចូល",
   "close": "បិទ",
   "ready": "ត្រៀមរួចរាល់ដើម្បីចាប់ផ្តើមដំណើរស្វែងរក",
-  "bestTimeText": "ពេលព្រឹកឬល្ងាចដើម្បីទទួលបានទិដ្ឋភាពល្អបំផុត",
-  "country": "កម្ពុជា",
-  "fallbackTitle": "កន្លែងទេសចរណ៍",
-  "fallbackSummary": "គឺជាកន្លែងដ៏ពិសេសដែលផ្តល់នូវទស្សនៈធម្មជាតិនិងបទពិសោធន៍យ៉ាងទូលំទូលាយសម្រាប់អ្នកទស្សនា។",
-  "fallbackHighlights": [
-    "ទិដ្ឋភាពធម្មជាតិស្រស់ស្អាត",
-    "កន្លែងសម្រាប់ថតរូប",
-    "ឱកាសដើម្បីស្វែងរកបរិយកាស"
-  ],
-  "categories": ["ទាំងអស់", "ប្រវត្តិសាស្ត្រ", "ឆ្នេរខ្សាច់", "ធម្មជាតិ", "វប្បធម៌", "ការជំរុញ"]
+  "categories": ["ទាំងអស់", "ប្រវត្តិសាស្ត្រ", "ឆ្នេរខ្សាច់", "ធម្មជាតិ", "វប្បធម៌", "ការជំរុញ"],
+  "places": [
+    {
+      "id": 1,
+      "image": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnd0HqXmRD3nJfTKZ_v-PudV_oMtWeFM_AK20WIvBETCo6Jfmh90RAxJlJOeBD9ycOpQ7xIejDxDj1pOZ_-hkr5rstuDgCQC4ZxMSYttGzGVQqxZDncVAjcbMFdDiZmHz9wP9E=s680-w680-h510-rw",
+      "title": "អង្គរវត្ត",
+      "location": "សៀមរាប",
+      "category": "ប្រវត្តិសាស្ត្រ",
+      "rating": 4.9,
+      "reviews": 1200,
+      "price": "$37",
+      "isPopular": true,
+      "details": {
+        "summary": "ប្រាសាទបុរាណដ៏ល្បីល្បាញនៅក្នុងប្រទេសកម្ពុជា។",
+        "highlights": ["ទិដ្ឋភាពថ្ងៃរះ", "ចម្លាក់បុរាណ", "ជម្រើសមគ្គុទ្ទេសក៍ទេសចរណ៍"]
+      }
+    },
+    {
+      "id": 2,
+      "image": "https://dontforgettomove.com/wp-content/uploads/2015/06/Saracen-Bay-Resort.jpg",
+      "title": "កោះរុង",
+      "location": "កុង​កោះ",
+      "category": "ឆ្នេរខ្សាច់",
+      "rating": 4.8,
+      "reviews":850,
+      "price": "$37",
+      "isPopular": true,
+      "details": {
+        "summary": "ប្រាសាទបុរាណដ៏ល្បីល្បាញនៅក្នុងប្រទេសកម្ពុជា។",
+        "highlights": ["ទិដ្ឋភាពថ្ងៃរះ", "ចម្លាក់បុរាណ", "ជម្រើសមគ្គុទ្ទេសក៍ទេសចរណ៍"]
+      }
+    },
+    {
+      "id": 3,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTco-LlaonMIofcG8QZp_U1FHLUmDEHMNnA2gLQ-Zofgt_KqR52IbU14WY&s=10",
+      "title": "ឧទ្យានជាតិបូកគោ",
+      "location": "កំពត់",
+      "category": "ធម្មជាតិ",
+      "rating": 4.6,
+      "reviews": 420,
+      "price": "Free",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    },
+    {
+      "id": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl8oBFhRGVIjXwMdJ9Ju14ZYT9NytIYrUMpUs6NSwmnzzT22DVgMcybk4&s=10",
+      "title": "ព្រះបរមរាជវាំង",
+      "location": "ភ្នំពេញ",
+      "category": "វប្បធម៌",
+      "rating": 4.7,
+      "reviews": 960,
+      "price": "$10",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    },
+    {
+      "id": 5,
+      "image": "https://cdn.i-scmp.com/sites/default/files/styles/1020x680/public/d8/images/methode/2019/04/08/4c398e80-575b-11e9-a3ae-f2742b367090_image_hires_140430.jpg?itok=OrrdOs3K&v=1554703484",
+      "title": "ព្រៃក្តារីរំ",
+      "location": "កំពងស្ពឺ",
+      "category": "ការជំរុញ",
+      "rating": 4.5,
+      "reviews": 310,
+      "price": "$5",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    },
+    {
+      "id": 6,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/PhnomKulen.jpg",
+      "title": "ទឹកធ្លាក់ភ្នំគូលែន",
+      "location": "សៀមរាប",
+      "category": "ធម្មជាតិ",
+      "rating": 4.8,
+      "reviews": 640,
+      "price": "$20",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    }
+  ]
 }

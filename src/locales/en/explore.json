@@ -13,14 +13,97 @@
   "entryFee": "Entry fee",
   "close": "Close",
   "ready": "Ready to explore",
-  "bestTimeText": "Morning or late afternoon for the best atmosphere",
-  "country": "Cambodia",
-  "fallbackTitle": "This destination",
-  "fallbackSummary": "is a remarkable place that offers scenic beauty, cultural charm, and memorable experiences for every traveler.",
-  "fallbackHighlights": [
-    "Scenic natural views",
-    "Great photo spots",
-    "Perfect for discovery and relaxation"
-  ],
-  "categories": ["All", "Historical", "Beaches", "Nature", "Culture", "Adventure"]
+  "categories": ["All", "Historical", "Beaches", "Nature", "Culture", "Adventure"],
+  "places": [
+    {
+      "id": 1,
+      "image": "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnd0HqXmRD3nJfTKZ_v-PudV_oMtWeFM_AK20WIvBETCo6Jfmh90RAxJlJOeBD9ycOpQ7xIejDxDj1pOZ_-hkr5rstuDgCQC4ZxMSYttGzGVQqxZDncVAjcbMFdDiZmHz9wP9E=s680-w680-h510-rw",
+      "title": "Angkor Wat",
+      "location": "Siem Reap",
+      "category": "Historical",
+      "rating": 4.9,
+      "reviews": 1200,
+      "price": "$37",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    },
+    {
+      "id": 2,
+      "image": "https://dontforgettomove.com/wp-content/uploads/2015/06/Saracen-Bay-Resort.jpg",
+      "title": "Koh Rong",
+      "location": "Koh Kong",
+      "category": "Beaches",
+      "rating": 4.8,
+      "reviews": 850,
+      "price": "$25",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    },
+    {
+      "id": 3,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTco-LlaonMIofcG8QZp_U1FHLUmDEHMNnA2gLQ-Zofgt_KqR52IbU14WY&s=10",
+      "title": "BoKor National Park",
+      "location": "Kompot",
+      "category": "Nature",
+      "rating": 4.6,
+      "reviews": 420,
+      "price": "Free",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    },
+    {
+      "id": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl8oBFhRGVIjXwMdJ9Ju14ZYT9NytIYrUMpUs6NSwmnzzT22DVgMcybk4&s=10",
+      "title": "Royal Palace & Silver",
+      "location": "Phnom Penh",
+      "category": "Culture",
+      "rating": 4.7,
+      "reviews": 960,
+      "price": "$10",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    },
+    {
+      "id": 5,
+      "image": "https://cdn.i-scmp.com/sites/default/files/styles/1020x680/public/d8/images/methode/2019/04/08/4c398e80-575b-11e9-a3ae-f2742b367090_image_hires_140430.jpg?itok=OrrdOs3K&v=1554703484",
+      "title": "Kirirom Pine Forest",
+      "location": "Kampong Speu",
+      "category": "Adventure",
+      "rating": 4.5,
+      "reviews": 310,
+      "price": "$5",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    },
+    {
+      "id": 6,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/PhnomKulen.jpg",
+      "title": "Phnom Kulen Waterfalls",
+      "location": "Siem Reap",
+      "category": "Nature",
+      "rating": 4.8,
+      "reviews": 640,
+      "price": "$20",
+      "isPopular": true,
+      "details": {
+        "summary": "Famous ancient temple complex in Cambodia.",
+        "highlights": ["Sunrise view", "Ancient carvings", "Guided tour options"]
+      }
+    }
+  ]
 }
