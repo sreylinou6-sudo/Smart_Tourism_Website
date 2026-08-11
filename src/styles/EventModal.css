@@ -1,0 +1,128 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(15, 23, 42, 0.75); /* Modern dark backdrop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px); /* Modern blur effect */
+}
+
+.modal-container {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: popupScale 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-badge {
+  display: inline-block;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.modal-container h2 {
+  color: #0f172a;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-description {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.promo-box {
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #334155;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.promo-box strong {
+  color: #2563eb;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 10px 16px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary {
+  padding: 10px 16px;
+  background-color: transparent;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #f1f5f9;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #94a3b8;
+}
+
+.close-btn:hover {
+  color: #0f172a;
+}
+
+@keyframes popupScale {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

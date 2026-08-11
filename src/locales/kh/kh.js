@@ -7,7 +7,7 @@ import slideshow from './slideshow.json';
 import slideData from './slideData.json';
 import gallery from './gallery.json';
 import galleryData from './placesGallery.json';
-
+import eventData from './eventData.json';
 export default {
   nav,
   footer,
@@ -17,5 +17,6 @@ export default {
   slideshow,
   slideData,
   gallery,
-  galleryData
+  galleryData,
+  eventData,
 };
