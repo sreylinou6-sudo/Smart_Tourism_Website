@@ -22,18 +22,12 @@ const iconMap = {
 
 function About() {
   const { t } = useLanguage();
-
-  // t('about') ត្រូវ return object ទាំងមូលពី about.en.json / about.kh.json
   const content = t('about');
-
-  // Toggle accordion state for FAQ
   const [openFaq, setOpenFaq] = useState(null);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
-
-  // ការពារ error បើ translation មិនទាន់ load ឬ key khុសឆ្គង
   if (!content || typeof content !== 'object') {
     return null;
   }
@@ -123,7 +117,7 @@ function About() {
         <h2>{content.contactTitle}</h2>
         <p>{content.contactSubtitle}</p>
         <a
-          href="https://t.me/your_telegram_id"
+          href="#"
           target="_blank"
           rel="noopener noreferrer"
           className="about-cta-btn"
@@ -135,5 +129,4 @@ function About() {
     </section>
   );
 }
-
 export default About;

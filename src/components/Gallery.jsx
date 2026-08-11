@@ -15,20 +15,12 @@ import '../styles/Gallery.css';
 
 function Gallery({ theme = 'light' }) {
   const { t } = useLanguage();
-
-  // t('gallery') ត្រូវ return object { badge, title, ..., filters }
   const labels = t('gallery');
   const filters = labels?.filters || [];
-
-  // t('galleryData') ត្រូវ return array ដែលបានបកប្រែរួច (title/location ជា string ធម្មតា)
   const galleryData = t('galleryData');
   const hasGalleryData = Array.isArray(galleryData) && galleryData.length > 0;
-
-  // 1. Filter & Lightbox States
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
-
-  // 2. Local Likes State
   const [likesMap, setLikesMap] = useState(() => {
     const initial = {};
     if (hasGalleryData) {
@@ -59,8 +51,6 @@ function Gallery({ theme = 'light' }) {
     : activeFilter === 'all'
       ? galleryData
       : galleryData.filter((item) => item.category === activeFilter);
-
-  // Lightbox Keyboard Navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (selectedImageIndex === null) return;
@@ -82,8 +72,6 @@ function Gallery({ theme = 'light' }) {
 
   const currentSelectedImage =
     selectedImageIndex !== null ? filteredItems[selectedImageIndex] : null;
-
-  // ការពារ error បើ translation មិនទាន់ load ឬ key khុសឆ្គង
   if (!labels || typeof labels !== 'object' || !hasGalleryData) {
     return null;
   }

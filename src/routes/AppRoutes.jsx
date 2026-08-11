@@ -15,7 +15,6 @@ function AppRoutes({ theme, setTheme, language, setLanguage }) {
         <Route path="/info" element={<InfoPage language={language} />} />
         <Route path="/gallery" element={<GalleryPage language={language} />} />
         <Route path="/explore" element={<ExplorePage language={language} />} />
-
       </Route>
     </Routes>
   );
