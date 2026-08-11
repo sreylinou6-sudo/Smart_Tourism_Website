@@ -10,11 +10,19 @@ import {
   faChevronRight
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
+import { useLanguage } from '../context/LanguageContext';
 import '../styles/Gallery.css';
-import galleryData from '../data/placesGallery';
 
-function Gallery({ language = 'en', theme = 'light' }) {
-  const isKhmer = language === 'kh';
+function Gallery({ theme = 'light' }) {
+  const { t } = useLanguage();
+
+  // t('gallery') ត្រូវ return object { badge, title, ..., filters }
+  const labels = t('gallery');
+  const filters = labels?.filters || [];
+
+  // t('galleryData') ត្រូវ return array ដែលបានបកប្រែរួច (title/location ជា string ធម្មតា)
+  const galleryData = t('galleryData');
+  const hasGalleryData = Array.isArray(galleryData) && galleryData.length > 0;
 
   // 1. Filter & Lightbox States
   const [activeFilter, setActiveFilter] = useState('all');
@@ -23,9 +31,11 @@ function Gallery({ language = 'en', theme = 'light' }) {
   // 2. Local Likes State
   const [likesMap, setLikesMap] = useState(() => {
     const initial = {};
-    galleryData.forEach((item) => {
-      initial[item.id] = { count: item.likes || 0, liked: false };
-    });
+    if (hasGalleryData) {
+      galleryData.forEach((item) => {
+        initial[item.id] = { count: item.likes || 0, liked: false };
+      });
+    }
     return initial;
   });
 
@@ -44,39 +54,9 @@ function Gallery({ language = 'en', theme = 'light' }) {
     });
   };
 
-  // Dynamic Labels synced with Navbar language prop
-  const labels = {
-    badge: isKhmer ? 'បណ្តុំរូបភាពសម្រស់កម្ពុជា' : 'Visual Explorer',
-    title: isKhmer ? 'កម្ពុជា តាមរយៈឡេនថតរូប' : 'Cambodia Through the Lens',
-    subtitle: isKhmer
-      ? 'ទស្សនារូបភាពស្រស់ស្អាតដែលត្រូវបានជ្រើសរើសយ៉ាងសម្រិតសម្រាំងពីតំបន់ទេសចរណ៍ដ៏ទាក់ទាញនៅទូទាំងប្រទេសកម្ពុជា។'
-      : 'Browse through curated, high-definition photos from breathtaking destinations across Cambodia.',
-    filter: isKhmer ? 'ចម្រាញ់រូបភាព:' : 'Category:',
-    expand: isKhmer ? 'ពង្រីករូបភាព' : 'Expand image',
-    close: isKhmer ? 'បិទ' : 'Close modal',
-    likes: isKhmer ? 'ចូលចិត្ត' : 'Likes',
-    prev: isKhmer ? 'មុន' : 'Previous',
-    next: isKhmer ? 'បន្ទាប់' : 'Next'
-  };
-
-  const filters = isKhmer
-    ? [
-        { key: 'all', label: 'ទាំងអស់' },
-        { key: 'cultural', label: 'វប្បធម៌ និងបេតិកភណ្ឌ' },
-        { key: 'nature', label: 'ធម្មជាតិ និងព្រៃភ្នំ' },
-        { key: 'coastal', label: 'ឆ្នេរ និងកោះ' },
-        { key: 'food', label: 'ម្ហូបអាហារ' }
-      ]
-    : [
-        { key: 'all', label: 'All Places' },
-        { key: 'cultural', label: 'Cultural & Heritage' },
-        { key: 'nature', label: 'Nature & Wildlife' },
-        { key: 'coastal', label: 'Beaches & Islands' },
-        { key: 'food', label: 'Cuisine' }
-      ];
-
-  const filteredItems =
-    activeFilter === 'all'
+  const filteredItems = !hasGalleryData
+    ? []
+    : activeFilter === 'all'
       ? galleryData
       : galleryData.filter((item) => item.category === activeFilter);
 
@@ -102,6 +82,11 @@ function Gallery({ language = 'en', theme = 'light' }) {
 
   const currentSelectedImage =
     selectedImageIndex !== null ? filteredItems[selectedImageIndex] : null;
+
+  // ការពារ error បើ translation មិនទាន់ load ឬ key khុសឆ្គង
+  if (!labels || typeof labels !== 'object' || !hasGalleryData) {
+    return null;
+  }
 
   return (
     <div className="gallery-page">
@@ -135,8 +120,8 @@ function Gallery({ language = 'en', theme = 'light' }) {
       <section className="gallery-grid-container">
         <div className="gallery-grid">
           {filteredItems.map((item, index) => {
-            const title = item.title[isKhmer ? 'kh' : 'en'];
-            const location = item.location[isKhmer ? 'kh' : 'en'];
+            const title = item.title;
+            const location = item.location;
             const itemLikeInfo = likesMap[item.id] || { count: item.likes, liked: false };
 
             return (
@@ -210,16 +195,16 @@ function Gallery({ language = 'en', theme = 'light' }) {
             <div className="lightbox-image-wrap">
               <img
                 src={currentSelectedImage.image}
-                alt={currentSelectedImage.title[isKhmer ? 'kh' : 'en']}
+                alt={currentSelectedImage.title}
                 className="lightbox-img"
               />
             </div>
 
             <div className="lightbox-details">
               <div className="lightbox-text">
-                <h2>{currentSelectedImage.title[isKhmer ? 'kh' : 'en']}</h2>
+                <h2>{currentSelectedImage.title}</h2>
                 <p>
-                  <FontAwesomeIcon icon={faLocationDot} /> {currentSelectedImage.location[isKhmer ? 'kh' : 'en']}
+                  <FontAwesomeIcon icon={faLocationDot} /> {currentSelectedImage.location}
                 </p>
               </div>
               <button

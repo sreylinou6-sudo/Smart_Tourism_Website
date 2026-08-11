@@ -1,0 +1,73 @@
+{
+  "title": "Cambodia Travel Essentials",
+  "subtitle": "Everything you need to research, plan, and explore Cambodia smoothly and safely.",
+  "heroBadge": "Complete Travel Guide",
+  "introTitle": "Why travelers reliance on this guide",
+  "introText": "From visa requirements and cultural etiquette to local apps and estimated budgets, this comprehensive guide covers all aspects of traveling in Cambodia.",
+
+  "cards": [
+    {
+      "title": "Arrival & Visas",
+      "text": "E-Visas and Visa-on-Arrival are available ($30-$36). Use the official Cambodia e-Arrival app before landing.",
+      "icon": "faPassport"
+    },
+    {
+      "title": "Safety & Etiquette",
+      "text": "Dress modestly at temples (cover shoulders & knees). Respect monks and local customs.",
+      "icon": "faShieldHeart"
+    },
+    {
+      "title": "Best Time to Visit",
+      "text": "November to April brings dry, cooler weather—ideal for temples, islands, and outdoor activities.",
+      "icon": "faClock"
+    }
+  ],
+
+  "regionsTitle": "Explore by Region",
+  "regions": [
+    {
+      "name": "Cultural & Heritage (Siem Reap)",
+      "details": "Home to Angkor Wat. Pass fees: $37 (1-day), $62 (3-days), $72 (7-days)."
+    },
+    {
+      "name": "Capital & History (Phnom Penh)",
+      "details": "Royal Palace, National Museum, Riverside promenade, and historical landmarks."
+    },
+    {
+      "name": "Coastal & Islands (Sihanoukville, Koh Rong, Kampot, Kep)",
+      "details": "White sand beaches, island hopping, pepper plantations, and fresh seafood."
+    },
+    {
+      "name": "Eco-Tourism & Nature (Mondulkiri, Ratanakiri, Cardamom)",
+      "details": "Elephant sanctuaries, jungle trekking, waterfalls, and Indigenous culture."
+    }
+  ],
+
+  "appsTitle": "Essential Local Apps",
+  "apps": [
+    { "name": "Ride-Hailing:", "desc": "Grab, PassApp, TADA (easy tuk-tuk & taxi booking)" },
+    { "name": "Intercity Transport:", "desc": "CamboTicket, BookMeBus (buses, ferries, VIP vans)" },
+    { "name": "Payments:", "desc": "Bakong Tourist App, KHQR, Cash (USD & KHR)" }
+  ],
+
+  "budgetTitle": "Estimated Budget (Per Day)",
+  "budgets": [
+    { "level": "Budget Backpacker", "cost": "$20 – $35 / day" },
+    { "level": "Mid-Range Traveler", "cost": "$50 – $100 / day" },
+    { "level": "Luxury Experience", "cost": "$150+ / day" }
+  ],
+
+  "festivalsTitle": "Major Festivals & Events",
+  "festivals": [
+    { "name": "Khmer New Year", "time": "Mid-April" },
+    { "name": "Pchum Ben (Ancestors Day)", "time": "September / October" },
+    { "name": "Water Festival (Bon Om Touk)", "time": "November" }
+  ],
+
+  "emergencyTitle": "Emergency Contacts",
+  "contacts": [
+    { "label": "Tourist Police", "val": "+855 23 724 793" },
+    { "label": "General Emergency", "val": "117 (Police) / 119 (Ambulance)" },
+    { "label": "Top Hospitals", "val": "Royal Phnom Penh Hospital / Calmette Hospital" }
+  ]
+}

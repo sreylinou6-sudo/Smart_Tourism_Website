@@ -1,0 +1,18 @@
+{
+  "badge": "Visual Explorer",
+  "title": "Cambodia Through the Lens",
+  "subtitle": "Browse through curated, high-definition photos from breathtaking destinations across Cambodia.",
+  "filter": "Category:",
+  "expand": "Expand image",
+  "close": "Close modal",
+  "likes": "Likes",
+  "prev": "Previous",
+  "next": "Next",
+  "filters": [
+    { "key": "all", "label": "All Places" },
+    { "key": "cultural", "label": "Cultural & Heritage" },
+    { "key": "nature", "label": "Nature & Wildlife" },
+    { "key": "coastal", "label": "Beaches & Islands" },
+    { "key": "food", "label": "Cuisine" }
+  ]
+}

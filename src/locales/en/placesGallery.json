@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Sunrise over Angkor Wat",
+    "location": "Siem Reap",
+    "category": "cultural",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZnh7wpE5_56GZLoAHI772ZGYWQCUwJs9r8HOOhpAT3A&s=10",
+    "likes": 342
+  },
+  {
+    "id": 2,
+    "title": "Koh Rong Sanloem Sunset",
+    "location": "Sihanoukville",
+    "category": "coastal",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT39wBpaFqKBfPZFDfb2SRQ-Y7daUOZJjw98LTR18YRGg&s=10",
+    "likes": 512
+  },
+  {
+    "id": 3,
+    "title": "Cardamom Jungle Canopy",
+    "location": "Koh Kong",
+    "category": "nature",
+    "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop",
+    "likes": 218
+  },
+  {
+    "id": 4,
+    "title": "Wat Phnom",
+    "location": "Phnom Penh",
+    "category": "cultural",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVubfkbblkvQpg51NODErnnsHPvstOhwpTFqg-Tvd-9A&s=10",
+    "likes": 189
+  },
+  {
+    "id": 5,
+    "title": "Banteay Srei Carvings",
+    "location": "Siem Reap",
+    "category": "cultural",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4GvpEbv3HwNfsnkVB6sNARCzf_qioaa_vE0r7qB8rLg&s=10",
+    "likes": 275
+  },
+  {
+    "id": 6,
+    "title": "Kampot River Sunset",
+    "location": "Kampot",
+    "category": "nature",
+    "image": "https://kohsantepheapdaily.com.kh/wp-content/uploads/2013/5/c78d0acb-7165-441e-92e1-fe58876d4251.jpg",
+    "likes": 410
+  }
+]

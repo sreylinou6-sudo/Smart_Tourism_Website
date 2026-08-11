@@ -6,43 +6,45 @@ import {
   faLocationDot,
   faArrowRight
 } from '@fortawesome/free-solid-svg-icons';
+import { useLanguage } from '../context/LanguageContext';
 import '../styles/SlideShow.css';
-import slideData from '../data/slideData';
 
-function SlideShow({ language = 'en', onExplore }) {
+function SlideShow({ onExplore }) {
+  const { t } = useLanguage();
+  const labels = t('slideshow');
+  const slideData = t('slideData');
+  const hasSlides = Array.isArray(slideData) && slideData.length > 0;
   const [current, setCurrent] = useState(0);
-  const length = slideData.length;
-  const isKhmer = language === 'kh';
+  const length = hasSlides ? slideData.length : 0;
 
   const nextSlide = useCallback(() => {
+    if (length === 0) return;
     setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
   }, [length]);
 
   const prevSlide = useCallback(() => {
+    if (length === 0) return;
     setCurrent((prev) => (prev === 0 ? length - 1 : prev - 1));
   }, [length]);
 
   useEffect(() => {
+    if (length === 0) return undefined;
     const timer = window.setInterval(() => {
       nextSlide();
     }, 6000);
 
     return () => window.clearInterval(timer);
-  }, [current, nextSlide]);
+  }, [current, nextSlide, length]);
 
-  if (!Array.isArray(slideData) || slideData.length <= 0) {
+  // ការពារ error បើ translation ឬ slideData មិនទាន់ load
+  if (!labels || typeof labels !== 'object' || !hasSlides) {
     return null;
   }
 
-  const labels = {
-    prev: isKhmer ? 'ស្លាយមុន' : 'Previous slide',
-    next: isKhmer ? 'ស្លាយបន្ទាប់' : 'Next slide',
-    cta: isKhmer ? 'ស្វែងរកឥឡូវនេះ' : 'Explore Now',
-    goTo: (index) => (isKhmer ? `ទៅស្លាយទី ${index + 1}` : `Go to slide ${index + 1}`)
-  };
+  const goToLabel = (index) => (labels.goTo || '').replace('{n}', index + 1);
 
   return (
-    <section className="slideshow" aria-label={isKhmer ? 'ស្លាយកន្លែងទេសចរណ៍' : 'Travel slideshow'}>
+    <section className="slideshow" aria-label={labels.ariaLabel}>
       <button className="nav-arrow left" onClick={prevSlide} aria-label={labels.prev}>
         <FontAwesomeIcon icon={faChevronLeft} />
       </button>
@@ -59,12 +61,12 @@ function SlideShow({ language = 'en', onExplore }) {
               </div>
 
               <div className="slide-content">
-                <span className="slide-badge">{slide.badge[isKhmer ? 'kh' : 'en']}</span>
+                <span className="slide-badge">{slide.badge}</span>
                 <span className="slide-location">
-                  <FontAwesomeIcon icon={faLocationDot} /> {slide.location[isKhmer ? 'kh' : 'en']}
+                  <FontAwesomeIcon icon={faLocationDot} /> {slide.location}
                 </span>
-                <h2 className="slide-title">{slide.title[isKhmer ? 'kh' : 'en']}</h2>
-                <p className="slide-desc">{slide.description[isKhmer ? 'kh' : 'en']}</p>
+                <h2 className="slide-title">{slide.title}</h2>
+                <p className="slide-desc">{slide.description}</p>
                 <button type="button" className="slide-cta" onClick={() => onExplore?.(slide)}>
                   {labels.cta} <FontAwesomeIcon icon={faArrowRight} />
                 </button>
@@ -80,7 +82,7 @@ function SlideShow({ language = 'en', onExplore }) {
             key={index}
             className={index === current ? 'dot active' : 'dot'}
             onClick={() => setCurrent(index)}
-            aria-label={labels.goTo(index)}
+            aria-label={goToLabel(index)}
           />
         ))}
       </div>
