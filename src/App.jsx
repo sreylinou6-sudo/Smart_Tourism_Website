@@ -26,7 +26,6 @@ function App() {
   }, [theme, language]);
  
   return (
-    /* បញ្ជូន language និង setLanguage ចូលទៅក្នុង LanguageProvider */
     <LanguageProvider language={language} setLanguage={setLanguage}>
       <AppRoutes theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage} />
     </LanguageProvider>

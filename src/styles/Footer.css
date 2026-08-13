@@ -1,6 +1,4 @@
-/* ==========================================
-   FOOTER STYLES
-   ========================================== */
+
 .footer {
   background: linear-gradient(135deg, var(--surface-alt), var(--surface));
   color: var(--text-muted);
@@ -87,7 +85,6 @@
   font-weight: 700;
   margin: 0 0 1rem;
 }
-
 .footer-links {
   list-style: none;
   padding: 0;
@@ -96,7 +93,6 @@
   flex-direction: column;
   gap: 0.65rem;
 }
-
 .footer-links a {
   color: var(--text-muted);
   font-size: 0.9rem;
@@ -107,7 +103,6 @@
 .footer-links a:hover {
   color: var(--color-teal);
 }
-
 /* Newsletter Input Section */
 .newsletter-text {
   font-size: 0.92rem;
@@ -130,48 +125,76 @@
   pointer-events: none;
 }
 
+/* Newsletter Input Section */
+.newsletter-text {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%); 
+  color: var(--text-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
 .newsletter-input {
   width: 100%;
-  padding: 0.75rem 2.8rem 0.75rem 2.5rem;
-  background: var(--surface);
+  padding: 0.85rem 3rem 0.85rem 2.75rem; /* Increased padding slightly for Khmer text comfort */
+  background: rgba(255, 255, 255, 0.03); /* Soft subtle dark background fallback */
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 50px; /* Clean pill shape */
   color: var(--text-strong);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .newsletter-input::placeholder {
   color: var(--text-muted);
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .newsletter-input:focus {
   border-color: var(--color-teal);
+  box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.15); /* Soft outer glow on focus */
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .newsletter-btn {
   position: absolute;
-  right: 0.3rem;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--color-teal) 100%);
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%); 
+  background: linear-gradient(135deg, var(--accent) 0%, var(--color-input) 100%);
   border: none;
   color: #ffffff;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
 }
-
 .newsletter-btn:hover {
-  transform: scale(1.05);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 12px rgba(6, 1, 66, 0.3);
 }
 
-/* Footer Bottom / Copyright Bar */
 .footer-bottom {
   display: flex;
   flex-direction: column;

@@ -11,9 +11,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useLanguage } from '../context/LanguageContext';
 import '../styles/About.css';
-
-// nav.json/about.json អាចផ្ទុកតែ string សម្រាប់ icon (ឧ. "compass")
-// ដូច្នេះត្រូវ map string នោះទៅ FontAwesome icon object វិញនៅទីនេះ
 const iconMap = {
   compass: faCompass,
   leaf: faLeaf,

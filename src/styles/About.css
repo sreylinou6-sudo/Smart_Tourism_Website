@@ -1,6 +1,4 @@
-/* ==========================================
-   ABOUT PAGE STYLES (WITH DARK MODE FIX)
-   ========================================== */
+
 .about-page {
   min-height: 100vh;
   padding: 3rem 1.5rem 5rem;
@@ -18,8 +16,6 @@
   margin: 0 auto 2rem;
   grid-template-columns: 1.1fr 0.9fr;
 }
-
-/* Base Card Style using CSS Variables for Dark/Light Mode */
 .about-hero-content,
 .about-hero-panel,
 .about-card,
@@ -36,7 +32,6 @@
 .about-hero-content {
   padding: 2rem;
 }
-
 .about-badge {
   display: inline-flex;
   margin-bottom: 0.8rem;
@@ -173,20 +168,17 @@
 .faq-item:hover {
   border-color: var(--accent);
 }
-
 .faq-question {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .faq-question h4 {
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-strong);
 }
-
 .faq-icon {
   color: var(--text-muted);
   transition: transform 0.3s ease;
@@ -254,11 +246,6 @@
   box-shadow: 0 8px 20px rgba(47, 143, 102, 0.35);
 }
 
-/* ==========================================
-   DARK MODE OVERRIDES & MEDIA QUERIES
-   ========================================== */
-
-/* Supporting explicit dark class or attribute if used */
 [data-theme="dark"] .about-page,
 .dark .about-page {
   background:
@@ -271,7 +258,8 @@
 [data-theme="dark"] .about-section,
 .dark .about-hero-content,
 .dark .about-card,
-.dark .about-section {
+.dark .about-section,
+.dark .about-badge {
   background: rgba(30, 41, 59, 0.7);
   border-color: rgba(255, 255, 255, 0.1);
 }
