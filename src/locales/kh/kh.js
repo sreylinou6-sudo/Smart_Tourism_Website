@@ -8,6 +8,9 @@ import slideData from './slideData.json';
 import gallery from './gallery.json';
 import galleryData from './placesGallery.json';
 import eventData from './eventData.json';
+import PrivacyPolicy from './PrivacyPolicy';
+import TermsAndConditions from './termsAndConditions.json';
+
 export default {
   nav,
   footer,
@@ -19,4 +22,6 @@ export default {
   gallery,
   galleryData,
   eventData,
+  PrivacyPolicy,
+  TermsAndConditions,
 };

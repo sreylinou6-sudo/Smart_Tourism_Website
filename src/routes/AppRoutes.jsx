@@ -5,6 +5,8 @@ import InfoPage from '../pages/InfoPage';
 import GalleryPage from '../pages/GalleryPage';
 import ExplorePage from '../pages/ExplorePage';
 import MainLayout from '../layouts/MainLayout';
+import PrivacyPolicy from '../components/legal/PrivacyPolicy';
+import TermsAndConditions from '../components/legal/TermsAndConditions';
 
 function AppRoutes({ theme, setTheme, language, setLanguage }) {
   return (
@@ -15,6 +17,8 @@ function AppRoutes({ theme, setTheme, language, setLanguage }) {
         <Route path="/info" element={<InfoPage language={language} />} />
         <Route path="/gallery" element={<GalleryPage language={language} />} />
         <Route path="/explore" element={<ExplorePage language={language} />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy language={language} />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions language={language} />} />
       </Route>
     </Routes>
   );

@@ -91,8 +91,8 @@ function Footer() {
             &copy; {new Date().getFullYear()} {t('footer.brand')}. {t('footer.copyright')}.
           </p>
           <div className="footer-bottom-links">
-            <Link to="/privacy">{t('footer.privacy')}</Link>
-            <Link to="/terms">{t('footer.terms')}</Link>
+            <Link to="/privacy-policy">{t('footer.privacy')}</Link>
+            <Link to="/terms-and-conditions">{t('footer.terms')}</Link>
           </div>
         </div>
       </div>

@@ -1,0 +1,101 @@
+/* TermsAndConditions.css */
+
+.legal-container {
+  background: transparent; /* ទុកឱ្យ background gradient របស់ body បង្ហាញមក */
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Khmer OS Siemreap', 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+.back-btn-wrapper {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  width: 100%;
+}
+
+.back-btn {
+  text-decoration: none;
+  color: var(--color-primary); /* ប្រើប្រាស់ CSS Variables */
+  font-weight: 600;
+  transition: color 0.2s ease;
+  font-size: 15px;
+}
+
+.back-btn:hover {
+  color: var(--color-primary-hover);
+}
+
+.legal-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--surface); /* ប្តូរពណ៌ទៅជា #1f2937 ស្វ័យប្រវត្តពេល Dark Mode */
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+  width: 100%;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.legal-title {
+  font-size: 26px;
+  color: var(--text-strong);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.legal-date {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+
+.legal-section-title {
+  font-size: 18px;
+  color: var(--text-strong);
+  margin-top: 25px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.legal-text {
+  color: var(--text-strong);
+  opacity: 0.9;
+  line-height: 1.8;
+  font-size: 15px;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* ===================================================
+   📱 RESPONSIVE STYLE FOR MOBILE (អេក្រង់ទូរស័ព្ទ)
+   =================================================== */
+@media (max-width: 768px) {
+  .legal-container {
+    padding: 20px 15px;
+  }
+
+  .legal-card {
+    padding: 25px 20px;
+    border-radius: 8px;
+  }
+
+  .legal-title {
+    font-size: 20px;
+  }
+
+  .legal-section-title {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .legal-text {
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: left;
+  }
+}

@@ -1,0 +1,96 @@
+.privacy-container {
+  background: transparent; /* ទុកឱ្យ background gradient របស់ body ក្នុង index.css បង្ហាញមក */
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.privacy-back-wrapper {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  width: 100%;
+}
+
+.privacy-back-link {
+  text-decoration: none;
+  color: var(--color-primary); /* ប្រើពណ៌ពី index.css */
+  font-weight: 600;
+  transition: color 0.2s ease;
+  font-size: 15px;
+}
+
+.privacy-back-link:hover {
+  color: var(--color-primary-hover); /* ប្រើពណ៌ hover ពី index.css */
+}
+
+.privacy-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--surface); /* ដូរពណ៌តាម Light/Dark Mode */
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: var(--shadow); /* ប្រើប្រាស់ស្រមោលពី index.css */
+  border: 1px solid var(--border); /* ដូរពណ៌បន្ទាត់ព្រំតាម mode */
+  box-sizing: border-box;
+  width: 100%;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.privacy-title {
+  font-size: 26px;
+  color: var(--text-strong); /* អក្សរខ្មៅពេល Light / អក្សរសពេល Dark */
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.privacy-date {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+
+.privacy-section-title {
+  font-size: 18px;
+  color: var(--text-strong);
+  margin-top: 25px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.privacy-text {
+  color: var(--text-strong);
+  opacity: 0.9; /* បន្ថយភាពដិតបន្តិចដើម្បីឱ្យធូរភ្នែកពេលអាន */
+  line-height: 1.8;
+  font-size: 15px;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+/* 📱 Responsive សម្រាប់ Mobile */
+@media (max-width: 768px) {
+  .privacy-container {
+    padding: 20px 15px;
+  }
+
+  .privacy-card {
+    padding: 25px 20px;
+    border-radius: 8px;
+  }
+
+  .privacy-title {
+    font-size: 20px;
+  }
+
+  .privacy-section-title {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .privacy-text {
+    font-size: 14px;
+    line-height: 1.7;
+    text-align: left;
+  }
+}
