@@ -14,10 +14,8 @@ export default function TermsAndConditions() {
       <div className="legal-card">
         <h1 className="legal-title">{t('TermsAndConditions.terms_title')}</h1>
         <p className="legal-date">{t('TermsAndConditions.updated_date')}</p>
-
         <h3 className="legal-section-title">{t('TermsAndConditions.terms_sec1_title')}</h3>
         <p className="legal-text">{t('TermsAndConditions.terms_sec1_desc')}</p>
-
         <h3 className="legal-section-title">{t('TermsAndConditions.terms_sec2_title')}</h3>
         <p className="legal-text">{t('TermsAndConditions.terms_sec2_desc')}</p>
       </div>
