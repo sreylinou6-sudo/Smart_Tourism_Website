@@ -9,7 +9,7 @@ import gallery from './gallery.json';
 import galleryData from './placesGallery.json';
 import eventData from './eventData.json';
 import PrivacyPolicy from './PrivacyPolicy';
-import TermsAndConditions from './termsAndConditions.json';
+import TermsAndConditions from './TermsAndConditions.json';
 
 export default {
   nav,
