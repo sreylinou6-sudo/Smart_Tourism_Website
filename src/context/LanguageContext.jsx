@@ -23,7 +23,6 @@ export const LanguageProvider = ({ children }) => {
     if (result !== undefined) {
       return result;   
     }
-
     return key; 
   };
 
