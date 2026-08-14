@@ -10,6 +10,7 @@ import galleryData from './placesGallery.json';
 import eventData from './eventData.json';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsAndConditions from './TermsAndConditions.json';
+import destinations from './destinations.json';
 
 export default {
   nav,
@@ -24,4 +25,5 @@ export default {
   eventData,
   PrivacyPolicy,
   TermsAndConditions,
+  destinations
 };

@@ -17,15 +17,12 @@ import '../../styles/Navbar.css';
 function Navbar({ theme, setTheme }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
-
-  // ទាញយក lang, setLang និង t ពី LanguageContext
   const { lang, setLang, t } = useLanguage();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
   const toggleLanguageMenu = () => setIsLanguageMenuOpen((prev) => !prev);
   const closeLanguageMenu = () => setIsLanguageMenuOpen(false);
-
   return (
     <header className="navbar-header">
       <nav className="navbar-container">

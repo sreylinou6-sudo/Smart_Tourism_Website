@@ -57,8 +57,8 @@
   align-items: center;
   margin-bottom: 0.6rem;
   padding: 0.35rem 0.8rem;
-  background: rgba(34, 183, 171, 0.25);
-  color: var(--color-teal);
+  background: var(--color-input);
+  color: var(--color-strong);
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -94,7 +94,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+  background: var(--color-primary);
   color: #ffffff;
   padding: 0.75rem 1.25rem;
   border-radius: 999px;
@@ -147,7 +147,7 @@
 
 .dot.active {
   width: 28px;
-  background: var(--color-teal);
+  background: var(--color-primary);
 }
 
 @media (min-width: 768px) {
