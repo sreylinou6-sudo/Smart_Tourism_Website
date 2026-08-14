@@ -8,7 +8,7 @@ import slideData from './slideData.json';
 import gallery from './gallery.json';
 import galleryData from './placesGallery.json';
 import eventData from './eventData.json';
-import PrivacyPolicy from './PrivacyPolicy';
+import PrivacyPolicy from './PrivacyPolicy.json';
 import TermsAndConditions from './TermsAndConditions.json';
 import destinations from './destinations.json';
 
@@ -25,5 +25,5 @@ export default {
   eventData,
   PrivacyPolicy,
   TermsAndConditions,
-  destinations
+  ...destinations   
 };

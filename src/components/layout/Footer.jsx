@@ -11,7 +11,6 @@ import '../../styles/Footer.css';
 function Footer() {
   // ទាញយក t function ពី Custom Hook useLanguage
   const { t } = useLanguage();
-
   const handleSubscribe = (e) => {
     e.preventDefault();
   };

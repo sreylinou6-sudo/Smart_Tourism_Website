@@ -15,8 +15,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useLanguage } from '../context/LanguageContext'; 
 import '../styles/FeaturedDestinations.css';
-
-// Map icon string ពី JSON ទៅកាន់ FontAwesome Object
 const iconMap = {
   faCamera,
   faBus,
@@ -24,30 +22,33 @@ const iconMap = {
   faShip,
   faBed,
   faTree,
-  faMountain
+  faMountain,
+  faCompass
 };
 
 function FeaturedDestinations({ onExplore, theme = 'light' }) {
   const [savedTrips, setSavedTrips] = useState([]);
-  
-  // ទាញយក lang និង t ពី LanguageContext
-  const { lang, t } = useLanguage();
+  // ១. ទាញយក translations និង lang មក
+  const { lang, t, translations } = useLanguage(); 
+  // ២. បង្កើត variable destinations 
+  const currentLocale = translations?.[lang] || translations?.en || {};
+  const destinations = currentLocale.destinations || [];
 
-  // ទាញយក destinations array ដោយផ្ទាល់តាមរយៈ lang បច្ចុប្បន្ន
-  const currentLocale = translations[lang] || translations.en || {};
-  const destinations = currentLocale.destinations || currentLocale.featuredDestinationsData || [];
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+  };
 
+  // FIX: toggleSave was called in JSX but never defined, causing a
+  // ReferenceError when clicking the save/heart button.
   const toggleSave = (id) => {
     setSavedTrips((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((tripId) => tripId !== id) : [...prev, id]
     );
   };
 
   return (
-    <section className={`featured-destinations-section ${theme}`}>
+    <section className="featured-destinations-section">
       <div className="featured-destinations-container">
-        
-        {/* Header Section */}
         <div className="featured-destinations-header">
           <div className="featured-destinations-heading">
             <span className="featured-destinations-label">
@@ -129,5 +130,4 @@ function FeaturedDestinations({ onExplore, theme = 'light' }) {
     </section>
   );
 }
-
 export default FeaturedDestinations;

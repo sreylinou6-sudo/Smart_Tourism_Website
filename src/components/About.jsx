@@ -114,7 +114,7 @@ function About() {
         <h2>{content.contactTitle}</h2>
         <p>{content.contactSubtitle}</p>
         <a
-          href="#"
+          href="https://ai-chatbot-psi-sepia.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           className="about-cta-btn"
