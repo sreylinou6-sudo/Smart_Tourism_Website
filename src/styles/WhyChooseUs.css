@@ -1,0 +1,103 @@
+/* ==========================================
+   WHY CHOOSE US - STYLES WITH YOUR DESIGN SYSTEM
+   ========================================== */
+
+.why-choose-us {
+  padding: 80px 20px;
+  /* ប្រើប្រាស់ Background Gradient & Color តាម Design Token របស់អ្នក */
+  background: transparent; 
+  color: var(--text-strong);
+  transition: color 0.3s ease;
+}
+
+.why-choose-us .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.why-choose-us .section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.why-choose-us .section-title {
+  font-size: 2.2rem;
+  color: var(--text-strong);
+  margin-bottom: 12px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.why-choose-us .section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+/* Feature Grid */
+.why-choose-us .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Feature Card */
+.why-choose-us .feature-card {
+  background: var(--surface);
+  padding: 32px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.why-choose-us .feature-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-teal-border);
+}
+
+/* Icon Wrapper */
+.why-choose-us .icon-wrapper {
+  width: 58px;
+  height: 58px;
+  background-color: var(--accent-soft);
+  border: 1px solid var(--color-teal-border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Card Titles & Text */
+.why-choose-us .card-title {
+  font-size: 1.25rem;
+  color: var(--text-strong);
+  margin-bottom: 10px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.why-choose-us .card-description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .why-choose-us {
+    padding: 50px 16px;
+  }
+
+  .why-choose-us .section-title {
+    font-size: 1.75rem;
+  }
+}

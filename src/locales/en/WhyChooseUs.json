@@ -1,0 +1,30 @@
+{
+  "title": "Why Choose Us?",
+  "subtitle": "We provide exceptional services and solutions tailored to satisfy all your needs",
+  "features": [
+    {
+      "id": 1,
+      "icon": "faRocket",
+      "title": "Fast & Reliable",
+      "description": "On-time delivery and high-efficiency solutions for your project"
+    },
+    {
+      "id": 2,
+      "icon": "faShieldHalved",
+      "title": "Safe & Secure",
+      "description": "100% data security guaranteed with highly professional expertise"
+    },
+    {
+      "id": 3,
+      "icon": "faGem",
+      "title": "Premium Quality",
+      "description": "Uncompromised quality and meticulously crafted design"
+    },
+    {
+      "id": 4,
+      "icon": "faHeadset",
+      "title": "24/7 Support",
+      "description": "Dedicated team ready to assist and answer your questions anytime"
+    }
+  ]
+}

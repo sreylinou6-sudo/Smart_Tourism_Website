@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import SlideShow from '../components/SlideShow';
 import FeaturedDestinations from '../components/FeaturedDestinations';
+import WhyChooseUs from "../components/WhyChooseUs";
 
 
 
@@ -12,9 +13,9 @@ function HomePage({ language = 'en' }) {
   return (
     <div>
       <SlideShow language={language} />
-      <FeaturedDestinations />
+      <FeaturedDestinations language={language}/>
+      <WhyChooseUs language={language} />
     </div>
   );
 }
-
 export default HomePage;

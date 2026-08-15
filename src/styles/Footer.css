@@ -101,7 +101,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--color-teal);
+  color: var(--color-primary);
 }
 /* Newsletter Input Section */
 .newsletter-text {
@@ -168,7 +168,7 @@
 }
 
 .newsletter-input:focus {
-  border-color: var(--color-teal);
+  border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.15); /* Soft outer glow on focus */
   background: rgba(255, 255, 255, 0.05);
 }
@@ -218,7 +218,7 @@
 }
 
 .footer-bottom-links a:hover {
-  color: var(--color-teal);
+  color: var(--color-primary);
 }
 
 /* Responsive Media Queries */

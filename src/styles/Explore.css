@@ -53,7 +53,7 @@
 }
 
 .explore-search input:focus {
-  border-color: var(--color-teal);
+  border-color: var(--color-primary-hover);
 }
 
 .search-icon {
@@ -98,7 +98,7 @@
 
 .category-pill:hover,
 .category-pill.active {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
   color: var(--color-white);
   border-color: transparent;
 }
@@ -138,7 +138,7 @@
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
-  background: var(--color-teal);
+  background: var(--color-primary-hover);
   color: var(--color-white);
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
@@ -181,7 +181,7 @@
 }
 
 .price-tag strong {
-  color: var(--color-teal);
+  color: var(--color-white);
 }
 
 .place-card-body {
@@ -202,7 +202,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--color-teal);
+  color: var(--color-primary);
 }
 
 .place-rating {
@@ -340,7 +340,7 @@
 .detail-hero-content .place-category,
 .detail-hero-content .place-meta,
 .detail-hero-content > span {
-  color: var(--color-teal) !important;
+  color: var(--color-primary) !important;
   font-weight: 700;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
@@ -481,8 +481,8 @@
   margin-top: 1rem;
   padding: 0.8rem;
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal) 100%);
-  color: var(--color-white) !important;
+  background: var(--color-primary);
+  color: var(--color-white);
   font-weight: 700;
   border: none;
   cursor: pointer;

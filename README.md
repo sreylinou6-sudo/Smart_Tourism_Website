@@ -4,7 +4,7 @@
 - fix style for gallery page
 - fix search box in explore when user search in box search
 - add more data in JSON for get into explore
-- and more
+- fix file add new
 # How to run my project
 - " npm install " for in install all libary
 - " npm run dev " for run this project

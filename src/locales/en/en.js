@@ -11,6 +11,7 @@ import eventData from './eventData.json';
 import PrivacyPolicy from './PrivacyPolicy.json';
 import TermsAndConditions from './TermsAndConditions.json';
 import destinations from './destinations.json';
+import WhyChooseUs from './WhyChooseUs.json';
 
 export default {
   nav,
@@ -25,5 +26,6 @@ export default {
   eventData,
   PrivacyPolicy,
   TermsAndConditions,
-  ...destinations   
+  ...destinations,
+  WhyChooseUs 
 };
