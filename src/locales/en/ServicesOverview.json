@@ -1,0 +1,30 @@
+{
+  "title": "Our Services",
+  "subtitle": "Discover everything we offer to make your travel experience seamless and memorable.",
+  "items": [
+    {
+      "id": "guided_tours",
+      "icon": "faMapMarkedAlt",
+      "title": "Guided City Tours",
+      "desc": "Explore historical landmarks and local hot spots with certified professional guides."
+    },
+    {
+      "id": "smart_booking",
+      "icon": "faTicketAlt",
+      "title": "Smart Ticket Booking",
+      "desc": "Book attraction tickets and transport seamlessly with real-time availability."
+    },
+    {
+      "id": "custom_itinerary",
+      "icon": "faRoute",
+      "title": "Customized Itineraries",
+      "desc": "Get personalized travel itineraries tailored to your preferences."
+    },
+    {
+      "id": "local_support",
+      "icon": "faHeadset",
+      "title": "24/7 Local Support",
+      "desc": "Access round-the-clock customer support in multiple languages wherever you are."
+    }
+  ]
+}

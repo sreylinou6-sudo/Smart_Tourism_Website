@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import SlideShow from '../components/SlideShow';
 import FeaturedDestinations from '../components/FeaturedDestinations';
 import WhyChooseUs from "../components/WhyChooseUs";
+import ServicesOverview from "../components/ServicesOverview";
 
 
 
@@ -15,6 +16,7 @@ function HomePage({ language = 'en' }) {
       <SlideShow language={language} />
       <FeaturedDestinations language={language}/>
       <WhyChooseUs language={language} />
+      <ServicesOverview language={language} />
     </div>
   );
 }

@@ -12,6 +12,7 @@ import PrivacyPolicy from './PrivacyPolicy.json';
 import TermsAndConditions from './TermsAndConditions.json';
 import destinations from './destinations.json';
 import WhyChooseUs from './WhyChooseUs.json';
+import ServicesOverview from './ServicesOverview.json';
 
 export default {
   nav,
@@ -27,5 +28,6 @@ export default {
   PrivacyPolicy,
   TermsAndConditions,
   ...destinations,
-  WhyChooseUs 
+  WhyChooseUs ,
+  ServicesOverview
 };
