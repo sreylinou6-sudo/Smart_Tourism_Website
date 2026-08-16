@@ -1,0 +1,58 @@
+{
+  "eyebrow": "ស្វែងរក",
+  "title": "ទីតាំងទេសចរណ៍ពេញនិយម",
+  "viewAll": "មើលទាំងអស់",
+  "readMore": "ស្វែងយល់",
+  "places": [
+    {
+      "id": 1,
+      "slug": "angkor-wat",
+      "category": "ប្រាសាទ",
+      "title": "ប្រាសាទអង្គរវត្ត",
+      "excerpt": "អនុសាវរីយ៍សាសនាធំបំផុតលើលោក ល្បីល្បាញដោយទិដ្ឋភាពថ្ងៃរះនិងចម្លាក់ថ្មដ៏ចាស់ជាច្រើនសតវត្សរ៍។",
+      "location": "សៀមរាប",
+      "duration": "កន្លះថ្ងៃ",
+      "image": "https://picsum.photos/seed/angkor-wat/900/600"
+    },
+    {
+      "id": 2,
+      "slug": "koh-rong",
+      "category": "ឆ្នេរសមុទ្រ",
+      "title": "កោះរុង",
+      "excerpt": "ឆ្នេរខ្សាច់សនិងទឹកសមុទ្រថ្លា ព្រមទាំងពន្លឺភ្លុកសមុទ្រពេលយប់ ធ្វើឱ្យកោះនេះជាទីពេញនិយម។",
+      "location": "ក្រុងព្រះសីហនុ",
+      "duration": "២-៣ថ្ងៃ",
+      "image": "https://picsum.photos/seed/koh-rong/900/600"
+    },
+    {
+      "id": 3,
+      "slug": "bokor-national-park",
+      "category": "ធម្មជាតិ",
+      "title": "ឧទ្យានជាតិបូកគោ",
+      "excerpt": "តំបន់ភ្នំមានអ័ព្ទ ជាមួយស្ថានីយ៍ភ្នំបារាំងចាស់ ទឹកជ្រោះ និងទិដ្ឋភាពសមុទ្រដ៏ធំទូលាយ។",
+      "location": "កំពត",
+      "duration": "ពេញមួយថ្ងៃ",
+      "image": "https://picsum.photos/seed/bokor-park/900/600"
+    },
+    {
+      "id": 4,
+      "slug": "kep-crab-market",
+      "category": "ទីក្រុងឆ្នេរ",
+      "title": "កែប និងផ្សារក្តាម",
+      "excerpt": "ទីក្រុងឆ្នេរស្ងប់ស្ងាត់ ល្បីល្បាញដោយក្តាមម្រេចកំពតស្រស់ ប្រាសាទបារាំងចាស់ និងការដើរលេងតាមឆ្នេរ។",
+      "location": "កែប",
+      "duration": "១ថ្ងៃ",
+      "image": "https://picsum.photos/seed/kep-crab/900/600"
+    },
+    {
+      "id": 5,
+      "slug": "tonle-sap-lake",
+      "category": "បឹង",
+      "title": "បឹងទន្លេសាប",
+      "excerpt": "បឹងទឹកសាបធំបំផុតនៅអាស៊ីអាគ្នេយ៍ ជាទីតាំងភូមិអណ្តែតទឹក និងជីវិតដែលរស់នៅតាមចរន្តទឹក។",
+      "location": "សៀមរាប",
+      "duration": "កន្លះថ្ងៃ",
+      "image": "https://picsum.photos/seed/tonle-sap/900/600"
+    }
+  ]
+}

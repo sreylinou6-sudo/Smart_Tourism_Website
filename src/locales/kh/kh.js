@@ -13,6 +13,8 @@ import TermsAndConditions from './TermsAndConditions.json';
 import destinations from './destinations.json';
 import WhyChooseUs from './WhyChooseUs.json';
 import ServicesOverview from './ServicesOverview.json';
+import LatestBlogs from './LatestBlogs.json';
+import SearchBar from './SearchBar.json';
 
 export default {
   nav,
@@ -29,5 +31,7 @@ export default {
   TermsAndConditions,
   ...destinations,
   WhyChooseUs,
-  ServicesOverview   
+  ServicesOverview,
+  LatestBlogs,
+  SearchBar   
 };

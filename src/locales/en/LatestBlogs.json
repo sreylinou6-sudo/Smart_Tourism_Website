@@ -1,0 +1,58 @@
+{
+  "eyebrow": "Discover",
+  "title": "Popular Destinations",
+  "viewAll": "View all",
+  "readMore": "Explore",
+  "places": [
+    {
+      "id": 1,
+      "slug": "angkor-wat",
+      "category": "Temple",
+      "title": "Angkor Wat",
+      "excerpt": "The world's largest religious monument, famous for its sunrise views and centuries-old stone carvings.",
+      "location": "Siem Reap",
+      "duration": "Half day",
+      "image": "https://picsum.photos/seed/angkor-wat/900/600"
+    },
+    {
+      "id": 2,
+      "slug": "koh-rong",
+      "category": "Beach",
+      "title": "Koh Rong Island",
+      "excerpt": "White-sand beaches, clear turquoise water, and glowing plankton after dark make this island a coastal favorite.",
+      "location": "Sihanoukville",
+      "duration": "2-3 days",
+      "image": "https://picsum.photos/seed/koh-rong/900/600"
+    },
+    {
+      "id": 3,
+      "slug": "bokor-national-park",
+      "category": "Nature",
+      "title": "Bokor National Park",
+      "excerpt": "A misty mountain retreat with an abandoned French hill station, waterfalls, and sweeping coastal views.",
+      "location": "Kampot",
+      "duration": "Full day",
+      "image": "https://picsum.photos/seed/bokor-park/900/600"
+    },
+    {
+      "id": 4,
+      "slug": "kep-crab-market",
+      "category": "Coastal Town",
+      "title": "Kep & the Crab Market",
+      "excerpt": "A quiet seaside town known for fresh Kampot-pepper crab, colonial-era ruins, and relaxed beach walks.",
+      "location": "Kep",
+      "duration": "1 day",
+      "image": "https://picsum.photos/seed/kep-crab/900/600"
+    },
+    {
+      "id": 5,
+      "slug": "tonle-sap-lake",
+      "category": "Lake",
+      "title": "Tonle Sap Lake",
+      "excerpt": "Southeast Asia's largest freshwater lake, home to floating villages and a rhythm of life tied to the tides.",
+      "location": "Siem Reap",
+      "duration": "Half day",
+      "image": "https://picsum.photos/seed/tonle-sap/900/600"
+    }
+  ]
+}

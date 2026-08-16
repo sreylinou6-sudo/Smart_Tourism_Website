@@ -3,6 +3,7 @@ import SlideShow from '../components/SlideShow';
 import FeaturedDestinations from '../components/FeaturedDestinations';
 import WhyChooseUs from "../components/WhyChooseUs";
 import ServicesOverview from "../components/ServicesOverview";
+// import LatestBlogs from '../components/LatestBlogs';
 
 
 
@@ -15,6 +16,7 @@ function HomePage({ language = 'en' }) {
     <div>
       <SlideShow language={language} />
       <FeaturedDestinations language={language}/>
+      {/* <LatestBlogs language={language} /> */}
       <WhyChooseUs language={language} />
       <ServicesOverview language={language} />
     </div>

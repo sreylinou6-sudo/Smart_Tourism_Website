@@ -19,10 +19,7 @@ import '../styles/Explore.css';
 function Explore() {
   const { t, language } = useLanguage();
   const isKhmer = language === 'kh';
-
-  // ទាញយក Content និង Places ទាំងអស់ចេញពី explore.json
   const content = t('explore');
-
   const [searchParams, setSearchParams] = useSearchParams();
   const [favorites, setFavorites] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -58,8 +55,6 @@ function Explore() {
   };
 
   if (!content) return null;
-
-  // Filter Data យ៉ាងសាមញ្ញ
   const filteredPlaces = placesData.filter((place) => {
     const matchesCategory =
       selectedCategory === 'All' ||
@@ -69,7 +64,6 @@ function Explore() {
     const matchesSearch =
       place.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       place.location?.toLowerCase().includes(searchTerm.toLowerCase());
-
     return matchesCategory && matchesSearch;
   });
 
