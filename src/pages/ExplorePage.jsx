@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import Explore from '../components/Explore';
-import SearchBar from '../components/common/SearchBar';
+// import SearchBar from '../components/common/SearchBar';
 
 function ExplorePage({ language = 'en' }) {
   useEffect(() => {
@@ -9,7 +9,7 @@ function ExplorePage({ language = 'en' }) {
 
   return (
     <div>
-      <SearchBar language = {language} />
+      {/* <SearchBar language = {language} /> */}
       <Explore language={language} />
     </div>
   );
