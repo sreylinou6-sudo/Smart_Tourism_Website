@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import InfoPage from '../pages/InfoPage';
+import DetailPage from '../pages/DetailPage';
 import GalleryPage from '../pages/GalleryPage';
 import ExplorePage from '../pages/ExplorePage';
 import MainLayout from '../layouts/MainLayout';
@@ -19,6 +20,7 @@ function AppRoutes({ theme, setTheme, language, setLanguage }) {
         <Route path="/explore" element={<ExplorePage language={language} />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy language={language} />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions language={language} />} />
+        <Route path="/detail/:id" element={<DetailPage language={language} />} />
       </Route>
     </Routes>
   );

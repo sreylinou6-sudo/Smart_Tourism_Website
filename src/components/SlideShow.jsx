@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
+
 import {
   faChevronLeft,
   faChevronRight,
@@ -11,11 +13,18 @@ import '../styles/SlideShow.css';
 
 function SlideShow({ onExplore }) {
   const { t } = useLanguage();
+  const navigate = useNavigate();
+
   const labels = t('slideshow');
   const slideData = t('slideData');
   const hasSlides = Array.isArray(slideData) && slideData.length > 0;
   const [current, setCurrent] = useState(0);
   const length = hasSlides ? slideData.length : 0;
+
+  const handleExplore = (slide) => {
+    onExplore?.(slide);          // ✅ នៅតែហៅ callback ដដែល (បើ parent ចង់ប្រើ)
+    navigate(`/detail/${slide.id}`); // ✅ navigate ទៅ detail page
+  };
 
   const nextSlide = useCallback(() => {
     if (length === 0) return;
@@ -36,7 +45,6 @@ function SlideShow({ onExplore }) {
     return () => window.clearInterval(timer);
   }, [current, nextSlide, length]);
 
-  // ការពារ error បើ translation ឬ slideData មិនទាន់ load
   if (!labels || typeof labels !== 'object' || !hasSlides) {
     return null;
   }
@@ -67,7 +75,7 @@ function SlideShow({ onExplore }) {
                 </span>
                 <h2 className="slide-title">{slide.title}</h2>
                 <p className="slide-desc">{slide.description}</p>
-                <button type="button" className="slide-cta" onClick={() => onExplore?.(slide)}>
+                <button type="button" className="slide-cta" onClick={() => handleExplore(slide)}>
                   {labels.cta} <FontAwesomeIcon icon={faArrowRight} />
                 </button>
               </div>

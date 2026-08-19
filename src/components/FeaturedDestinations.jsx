@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 import {
   faStar,
   faLocationDot,
@@ -15,6 +16,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useLanguage } from '../context/LanguageContext'; 
 import '../styles/FeaturedDestinations.css';
+
 const iconMap = {
   faCamera,
   faBus,
@@ -28,9 +30,8 @@ const iconMap = {
 
 function FeaturedDestinations({ onExplore, theme = 'light' }) {
   const [savedTrips, setSavedTrips] = useState([]);
-  // ១. ទាញយក translations និង lang មក
+  const navigate = useNavigate();
   const { lang, t, translations } = useLanguage(); 
-  // ២. បង្កើត variable destinations 
   const currentLocale = translations?.[lang] || translations?.en || {};
   const destinations = currentLocale.destinations || [];
 
@@ -38,12 +39,15 @@ function FeaturedDestinations({ onExplore, theme = 'light' }) {
     e.preventDefault();
   };
 
-  // FIX: toggleSave was called in JSX but never defined, causing a
-  // ReferenceError when clicking the save/heart button.
   const toggleSave = (id) => {
     setSavedTrips((prev) =>
       prev.includes(id) ? prev.filter((tripId) => tripId !== id) : [...prev, id]
     );
+  };
+
+  const handleExplore = (destination) => {
+    onExplore?.(destination);
+    navigate(`/detail/${destination.id}`);
   };
 
   return (
@@ -59,7 +63,6 @@ function FeaturedDestinations({ onExplore, theme = 'light' }) {
           </div>
         </div>
 
-        {/* Cards Grid */}
         <div className="featured-destinations-grid">
           {Array.isArray(destinations) && destinations.length > 0 ? (
             destinations.map((destination) => {
@@ -114,7 +117,7 @@ function FeaturedDestinations({ onExplore, theme = 'light' }) {
                     <button 
                       type="button" 
                       className="destination-cta" 
-                      onClick={() => onExplore?.(destination)}
+                      onClick={() => handleExplore(destination)}
                     >
                       {t('ui.ctaBtn')}
                     </button>
